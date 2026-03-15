@@ -1,0 +1,27 @@
+[Script Info]
+Title: GhostFeed Captions
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,80,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,4,0,2,40,40,200,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.00,Default,,0,0,0,,Most people check their phone the moment they wake up. Marcus Aurelius asked himself three questions instead.
+Dialogue: 0,0:00:03.00,0:00:06.33,Default,,0,0,0,,Before news\, before messages\, before the world
+Dialogue: 0,0:00:06.33,0:00:09.66,Default,,0,0,0,,got to him—Marcus Aurelius paused. In silence\,
+Dialogue: 0,0:00:09.66,0:00:13.00,Default,,0,0,0,,he asked himself three questions.
+Dialogue: 0,0:00:13.00,0:00:16.00,Default,,0,0,0,,One: 'What am I avoiding that I
+Dialogue: 0,0:00:16.00,0:00:19.00,Default,,0,0,0,,should lean into?' He faced discomfort before
+Dialogue: 0,0:00:19.00,0:00:22.00,Default,,0,0,0,,breakfast—because growth lives there.
+Dialogue: 0,0:00:22.00,0:00:25.33,Default,,0,0,0,,Two: 'What can I control today?' He
+Dialogue: 0,0:00:25.33,0:00:28.66,Default,,0,0,0,,drew a mental line—inside the circle: action\,
+Dialogue: 0,0:00:28.66,0:00:31.99,Default,,0,0,0,,focus\, breath. Outside? Noise. Judgment. Chaos.
+Dialogue: 0,0:00:31.99,0:00:34.25,Default,,0,0,0,,Three: 'How will I make others better?'
+Dialogue: 0,0:00:34.25,0:00:36.50,Default,,0,0,0,,Not 'what can I get'—but 'what can
+Dialogue: 0,0:00:36.50,0:00:38.75,Default,,0,0,0,,I give?' That shift? It armored his
+Dialogue: 0,0:00:38.75,0:00:41.00,Default,,0,0,0,,mind.

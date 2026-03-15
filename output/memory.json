@@ -1,0 +1,86 @@
+{
+  "videos": [
+    {
+      "id": "vid_1773603665755",
+      "timestamp": "2026-03-15T19:41:05.755Z",
+      "niche": "stoic philosophy",
+      "topic": "Epictetus Was a Slave. Here’s Why That Makes His Wisdom Unmatched.",
+      "angle": "True mental strength isn’t forged in comfort—it’s built in suffering. How the most powerful Stoic teachings came from the most powerless life.",
+      "script": {
+        "title": "Epictetus Was a Slave. That’s Why His Wisdom Is Unshakable.",
+        "hook": "He was born in chains… yet taught kings how to be free.",
+        "segments": [
+          {
+            "text": "Epictetus wasn’t a prince or a philosopher by birth. He was a slave—born with a limp, owned by a cruel master in Rome.",
+            "visualPrompt": "A dimly lit stone chamber in ancient Rome, shadows flickering from a single oil lamp. Close-up of a young Epictetus, wearing a torn tunic, chained at the ankle, sitting on cold marble. His face is calm but resolute, eyes reflecting firelight. Behind him, a cracked column with ivy crawling up. Dark moody atmosphere, cinematic lighting with deep shadows, 9:16 vertical, ultra-detailed, realistic textures.",
+            "durationSec": 10
+          },
+          {
+            "text": "While others broke under suffering, he turned pain into power. He realized: you can chain the body—but never the mind.",
+            "visualPrompt": "Low-angle shot of Epictetus standing in a Roman courtyard at dusk, backlit by a blood-orange sunset. His silhouette is strong despite his limp. A broken chain lies at his feet. Marble statues of Stoic philosophers loom in the background, half in shadow. Dramatic chiaroscuro lighting, wind gently moving his robe. High contrast, cinematic, 9:16 vertical.",
+            "durationSec": 9
+          },
+          {
+            "text": "His teachings weren’t from comfort—they were forged in silence, in beatings, in the choice to remain unshaken.",
+            "visualPrompt": "Extreme close-up of Epictetus’s eyes, reflecting flickering torchlight. Behind him, blurred motion of a whip in mid-air, frozen in time. The backdrop is a dark Roman villa interior, with marble busts of Marcus Aurelius and Seneca barely visible in shadow. Moody, intense, psychologically charged. 9:16 vertical, hyper-realistic detail.",
+            "durationSec": 8
+          },
+          {
+            "text": "True strength isn’t avoiding suffering. It’s mastering yourself within it. That’s why his words still command respect 2,000 years later.",
+            "visualPrompt": "Epictetus, older now, seated on a simple stone bench in a ruined Roman forum at night. He’s writing on a scroll, a single candle illuminating his hands. Around him, towering broken statues lie half-buried in ivy. The moon casts long, dramatic shadows. Ethereal mist rolls in. Cinematic, dark, meditative. 9:16 vertical, high resolution.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Follow for more timeless wisdom from the Stoics.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773603660049/ghostfeed_1773603662737.mp4",
+      "mockEngagement": {
+        "views": 15438,
+        "likes": 1184,
+        "retention": 78.5
+      }
+    },
+    {
+      "id": "vid_1773603708873",
+      "timestamp": "2026-03-15T19:41:48.873Z",
+      "niche": "stoic philosophy",
+      "topic": "Marcus Aurelius’ ‘First Three Minutes’ Morning Ritual",
+      "angle": "Before checking messages or news, Marcus Aurelius started each day with three precise mental questions—modern high performers are now adopting this to control focus and avoid anxiety spirals.",
+      "script": {
+        "title": "The Stoic Morning Ritual That Changes Everything",
+        "hook": "Most people check their phone the moment they wake up. Marcus Aurelius asked himself three questions instead.",
+        "segments": [
+          {
+            "text": "Before news, before messages, before the world got to him—Marcus Aurelius paused. In silence, he asked himself three questions.",
+            "visualPrompt": "Dark, moody interior of an ancient Roman chamber at dawn. A marble bust of Marcus Aurelius rests on a stone pedestal, lit by a single shaft of cinematic golden light piercing through a high window. Dramatic shadows stretch across cracked stone floors. Cinematic lighting, ultra-detailed, dark bronze and grey tones, 9:16 vertical, high quality, ancient Rome atmosphere.",
+            "durationSec": 10
+          },
+          {
+            "text": "One: 'What am I avoiding that I should lean into?' He faced discomfort before breakfast—because growth lives there.",
+            "visualPrompt": "Close-up of a weathered scroll being slowly unrolled on a marble table. Faint red ink reveals a single Greek word: 'DUTY'. Candlelight flickers across the stone surface. In the blurred background, a bronze oil lamp glows beneath a statue of Minerva. Dark atmosphere, deep shadows, cinematic contrast, 9:16 vertical.",
+            "durationSec": 9
+          },
+          {
+            "text": "Two: 'What can I control today?' He drew a mental line—inside the circle: action, focus, breath. Outside? Noise. Judgment. Chaos.",
+            "visualPrompt": "A glowing chalk circle drawn on an ancient stone floor, illuminated from above. Inside: a sword, a journal, a flame. Outside: shattered glass, scrolls burning at the edges. Heavy shadows loom beyond the light. Dark, contemplative mood, cinematic depth, 9:16 vertical, high contrast.",
+            "durationSec": 10
+          },
+          {
+            "text": "Three: 'How will I make others better?' Not 'what can I get'—but 'what can I give?' That shift? It armored his mind.",
+            "visualPrompt": "Marcus Aurelius standing on a balcony overlooking a misty ancient Roman city at sunrise. He wears a simple white toga, arms open slightly. Below, citizens begin their day. Light breaks over the hills, casting long shadows. Moody, cinematic, stoic grandeur, 9:16 vertical, high resolution.",
+            "durationSec": 9
+          }
+        ],
+        "cta": "Save this ritual. Try it for 3 days. Your focus will never be the same. Follow for more ancient wisdom that works.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773603703387/ghostfeed_1773603705466.mp4",
+      "mockEngagement": {
+        "views": 12294,
+        "likes": 1136,
+        "retention": 42.3
+      }
+    }
+  ]
+}

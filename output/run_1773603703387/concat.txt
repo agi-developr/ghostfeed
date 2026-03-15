@@ -1,0 +1,9 @@
+file '/Users/ilaprihodko/hackathon-ghostfeed/output/run_1773603703387/segment_0.png'
+duration 10
+file '/Users/ilaprihodko/hackathon-ghostfeed/output/run_1773603703387/segment_1.png'
+duration 9
+file '/Users/ilaprihodko/hackathon-ghostfeed/output/run_1773603703387/segment_2.png'
+duration 10
+file '/Users/ilaprihodko/hackathon-ghostfeed/output/run_1773603703387/segment_3.png'
+duration 9
+file '/Users/ilaprihodko/hackathon-ghostfeed/output/run_1773603703387/segment_3.png'

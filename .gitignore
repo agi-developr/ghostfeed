@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+output/*.mp4
+output/*.mp3
+output/*.png
+output/*.ass

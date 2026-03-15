@@ -1,0 +1,27 @@
+[Script Info]
+Title: GhostFeed Captions
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,80,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,4,0,2,40,40,200,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:03.00,Default,,0,0,0,,He was born in chains… yet taught kings how to be free.
+Dialogue: 0,0:00:03.00,0:00:05.50,Default,,0,0,0,,Epictetus wasn’t a prince or a philosopher
+Dialogue: 0,0:00:05.50,0:00:08.00,Default,,0,0,0,,by birth. He was a slave—born with
+Dialogue: 0,0:00:08.00,0:00:10.50,Default,,0,0,0,,a limp\, owned by a cruel master
+Dialogue: 0,0:00:10.50,0:00:13.00,Default,,0,0,0,,in Rome.
+Dialogue: 0,0:00:13.00,0:00:16.00,Default,,0,0,0,,While others broke under suffering\, he turned
+Dialogue: 0,0:00:16.00,0:00:19.00,Default,,0,0,0,,pain into power. He realized: you can
+Dialogue: 0,0:00:19.00,0:00:22.00,Default,,0,0,0,,chain the body—but never the mind.
+Dialogue: 0,0:00:22.00,0:00:24.66,Default,,0,0,0,,His teachings weren’t from comfort—they were forged
+Dialogue: 0,0:00:24.66,0:00:27.33,Default,,0,0,0,,in silence\, in beatings\, in the choice
+Dialogue: 0,0:00:27.33,0:00:30.00,Default,,0,0,0,,to remain unshaken.
+Dialogue: 0,0:00:30.00,0:00:33.33,Default,,0,0,0,,True strength isn’t avoiding suffering. It’s mastering
+Dialogue: 0,0:00:33.33,0:00:36.66,Default,,0,0,0,,yourself within it. That’s why his words
+Dialogue: 0,0:00:36.66,0:00:40.00,Default,,0,0,0,,still command respect 2\,000 years later.
