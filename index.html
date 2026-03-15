@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GhostFeed — It runs your channel while you sleep</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: #fff;
+        color: #000;
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      .hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 20px 60px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 4.5em;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -2px;
+        margin-bottom: 16px;
+      }
+      .hero .subtitle {
+        font-size: 1.5em;
+        font-style: italic;
+        color: #555;
+        margin-bottom: 40px;
+      }
+      .hero .desc {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 14px 32px;
+        text-decoration: none;
+        transition: all 0.15s;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-primary {
+        background: #000;
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: #f97316;
+        box-shadow: 4px 4px 0 #000;
+        transform: translate(-2px, -2px);
+      }
+      .btn-secondary {
+        background: #fff;
+        color: #000;
+        border: 2px solid #000;
+      }
+      .btn-secondary:hover {
+        box-shadow: 4px 4px 0 #000;
+        transform: translate(-2px, -2px);
+      }
+
+      /* How it works */
+      .how-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 20px;
+        border-top: 2px solid #000;
+      }
+      .how-title {
+        font-size: 2em;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+      .step {
+        text-align: center;
+      }
+      .step-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #000;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .step h3 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+      }
+      .step p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+      }
+      .step-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #ccc;
+      }
+
+      /* Live stats */
+      .stats-bar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        border-top: 2px solid #000;
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+      .stat-block {
+        text-align: center;
+      }
+      .stat-block .val {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .stat-block .lbl {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #888;
+        margin-top: 4px;
+      }
+
+      /* Agent preview */
+      .agent-preview {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+        border-top: 2px solid #000;
+      }
+      .agent-preview h2 {
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 24px;
+      }
+      .terminal-preview {
+        background: #000;
+        color: #fff;
+        font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+        padding: 20px 24px;
+        font-size: 12px;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .terminal-preview .ts {
+        color: #666;
+      }
+      .terminal-preview .agent {
+        color: #f97316;
+      }
+      .terminal-preview .ok {
+        color: #22c55e;
+      }
+
+      .footer {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+        border-top: 1px solid #ddd;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #999;
+      }
+
+      @media (max-width: 700px) {
+        .hero h1 {
+          font-size: 2.8em;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .stats-bar {
+          gap: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="/nav.js"></script>
+
+    <div class="hero">
+      <h1>GhostFeed</h1>
+      <div class="subtitle">It runs your channel while you sleep.</div>
+      <div class="desc">
+        An autonomous AI agent that researches trending topics, writes scripts,
+        generates visuals, composes voiceover, and publishes short-form video —
+        all without human intervention.
+      </div>
+      <div class="cta-buttons">
+        <a href="/spawn.html" class="btn btn-primary">Try It Live</a>
+        <a href="/dashboard.html" class="btn btn-secondary">View Dashboard</a>
+      </div>
+    </div>
+
+    <div class="how-section">
+      <div class="how-title">How It Works</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Pick a Niche</h3>
+          <p>
+            Choose from stoicism, AI, psychology, productivity, or money — or
+            define your own. The agent adapts tone, aesthetics, and topics to
+            match.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Agents Collaborate</h3>
+          <p>
+            Five specialized AI agents work in sequence: Trend Scout finds
+            topics, Scriptwriter crafts the hook+script, Visual Director designs
+            each frame, Voice Forge generates narration, and Editor assembles
+            the final video.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Video Ships</h3>
+          <p>
+            A complete short-form video with burned-in captions, voiceover, and
+            transitions — ready to post. The agent loops autonomously, building
+            a content library while you sleep.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-block">
+        <div class="val" id="statVideos">--</div>
+        <div class="lbl">Videos Generated</div>
+      </div>
+      <div class="stat-block">
+        <div class="val" id="statNiches">5</div>
+        <div class="lbl">Niche Presets</div>
+      </div>
+      <div class="stat-block">
+        <div class="val" id="statAgents">5</div>
+        <div class="lbl">AI Agents</div>
+      </div>
+      <div class="stat-block">
+        <div class="val">0</div>
+        <div class="lbl">Humans Required</div>
+      </div>
+    </div>
+
+    <div class="agent-preview">
+      <h2>Agent Activity</h2>
+      <div class="terminal-preview">
+        <div>
+          <span class="ts">[00:00]</span>
+          <span class="agent">trend-scout</span> Scanning niche: stoic
+          philosophy...
+        </div>
+        <div>
+          <span class="ts">[00:03]</span> <span class="agent">trend-scout</span>
+          <span class="ok">Found trending angle:</span> "Marcus Aurelius on
+          modern anxiety"
+        </div>
+        <div>
+          <span class="ts">[00:05]</span>
+          <span class="agent">scriptwriter</span> Crafting 5-segment hook-first
+          script...
+        </div>
+        <div>
+          <span class="ts">[00:12]</span>
+          <span class="agent">visual-director</span> Generating 5 scene images
+          (1024x1792)...
+        </div>
+        <div>
+          <span class="ts">[00:45]</span>
+          <span class="agent">voice-forge</span> Synthesizing voiceover with
+          ElevenLabs TTS...
+        </div>
+        <div>
+          <span class="ts">[00:52]</span>
+          <span class="agent">editor</span> Assembling video: images + audio +
+          captions...
+        </div>
+        <div>
+          <span class="ts">[00:58]</span> <span class="agent">editor</span>
+          <span class="ok">Complete.</span> output/run_17736/ghostfeed_17736.mp4
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      GhostFeed — Built at Hackathon 2026. Fully autonomous AI content pipeline.
+    </div>
+
+    <script>
+      fetch("/output/memory.json")
+        .then((r) => r.json())
+        .then((data) => {
+          document.getElementById("statVideos").textContent = data.videos
+            ? data.videos.length
+            : "0";
+        })
+        .catch(() => {
+          document.getElementById("statVideos").textContent = "0";
+        });
+    </script>
+  </body>
+</html>

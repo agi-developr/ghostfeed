@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GhostFeed — Autonomous Content Agent</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: #fff;
+        color: #000;
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      /* Live Banner */
+      .live-banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: #f97316;
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      .live-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #000;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* Header */
+      .header {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 30px 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: 2px solid #000;
+      }
+      .header h1 {
+        font-size: 2.8em;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+      .header .tagline {
+        font-size: 1.1em;
+        font-style: italic;
+        color: #555;
+        margin-top: 4px;
+      }
+      .header-stats {
+        display: flex;
+        gap: 24px;
+        align-items: flex-end;
+      }
+      .stat-item {
+        text-align: right;
+      }
+      .stat-item .value {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .stat-item .label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #888;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Terminal — agent activity log */
+      .terminal {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #000;
+        color: #fff;
+        font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+        padding: 12px 20px;
+        font-size: 11px;
+        line-height: 1.5;
+        min-height: 60px;
+        max-height: 120px;
+        overflow-y: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+      .terminal .line {
+        opacity: 0.7;
+      }
+      .terminal .line:last-child {
+        opacity: 1;
+      }
+      .terminal .ts {
+        color: #666;
+      }
+      .terminal .agent {
+        color: #f97316;
+      }
+
+      /* Main Layout */
+      .main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 20px;
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 30px;
+      }
+
+      /* Section Title */
+      .section-title {
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* Video Grid */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
+      .video-card {
+        cursor: pointer;
+        transition: all 0.15s;
+        border: 1px solid #ddd;
+      }
+      .video-card:hover {
+        border-color: #000;
+        box-shadow: 4px 4px 0 #000;
+        transform: translate(-2px, -2px);
+      }
+      .video-card.active {
+        border-color: #000;
+        box-shadow: 4px 4px 0 #f97316;
+      }
+      .video-thumb {
+        width: 100%;
+        aspect-ratio: 9/16;
+        max-height: 220px;
+        object-fit: cover;
+        background: #f5f5f5;
+        display: block;
+      }
+      .video-info {
+        padding: 10px 12px;
+        border-top: 1px solid #ddd;
+      }
+      .niche-badge {
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: #000;
+        color: #fff;
+        padding: 2px 6px;
+        margin-bottom: 6px;
+      }
+      .video-title {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 6px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .video-meta {
+        display: flex;
+        gap: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        color: #888;
+      }
+
+      /* Retention bar */
+      .retention-bar {
+        height: 3px;
+        background: #eee;
+        margin-top: 8px;
+      }
+      .retention-fill {
+        height: 100%;
+        transition: width 0.4s;
+      }
+
+      /* Detail Panel */
+      .detail-panel {
+        position: sticky;
+        top: 20px;
+        align-self: start;
+      }
+
+      .player-container {
+        width: 100%;
+        border: 1px solid #000;
+        margin-bottom: 16px;
+        background: #000;
+      }
+      .player-container video {
+        width: 100%;
+        max-height: 600px;
+        display: block;
+      }
+
+      .detail-section {
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #eee;
+      }
+      .detail-section:last-child {
+        border-bottom: none;
+      }
+      .detail-section h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #888;
+        margin-bottom: 6px;
+      }
+      .detail-section p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      /* Hook quote */
+      .hook-text {
+        font-style: italic;
+        font-size: 1.15em;
+        line-height: 1.4;
+        padding: 12px 16px;
+        border-left: 3px solid #f97316;
+        background: #fff8f0;
+      }
+
+      /* Engagement stats */
+      .engagement-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+      }
+      .eng-metric {
+        text-align: center;
+        padding: 10px 8px;
+        border: 1px solid #ddd;
+      }
+      .eng-metric .eng-value {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .eng-metric .eng-label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+      }
+
+      /* Segment list */
+      .segment-list {
+        list-style: none;
+      }
+      .segment-list li {
+        padding: 6px 0;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .segment-list li:last-child {
+        border-bottom: none;
+      }
+      .seg-num {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        line-height: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        margin-right: 8px;
+      }
+
+      /* Empty state */
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #999;
+      }
+      .empty-state .ghost {
+        font-size: 48px;
+        margin-bottom: 12px;
+      }
+      .empty-state p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+      }
+
+      /* Agent decision block */
+      .agent-decision {
+        background: #000;
+        color: #fff;
+        padding: 12px 16px;
+        font-family: "SF Mono", Monaco, Menlo, Consolas, monospace;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+      .agent-decision .key {
+        color: #f97316;
+      }
+
+      @media (max-width: 800px) {
+        .main {
+          grid-template-columns: 1fr;
+        }
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .header-stats {
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="/nav.js"></script>
+
+    <div class="live-banner" id="liveBanner" style="display: none">
+      <div class="live-dot"></div>
+      <span>AGENT ACTIVE — Last cycle <span id="lastCycleTime">—</span></span>
+    </div>
+
+    <div class="header">
+      <div>
+        <h1>GhostFeed</h1>
+        <div class="tagline">It runs your channel while you sleep.</div>
+      </div>
+      <div class="header-stats" id="headerStats"></div>
+    </div>
+
+    <div class="terminal" id="terminal">
+      <div class="line">
+        <span class="ts">[boot]</span>
+        <span class="agent">ghostfeed</span> Loading content memory...
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="content-area">
+        <div class="section-title">Content Queue</div>
+        <div class="video-grid" id="videoGrid"></div>
+      </div>
+      <div class="detail-panel" id="detailPanel">
+        <div class="empty-state">
+          <div class="ghost">&#x1F47B;</div>
+          <p>Select a video to see details</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let memory = { videos: [] };
+      let selectedId = null;
+      let lastVideoCount = 0;
+
+      async function loadData() {
+        try {
+          const res = await fetch("/output/memory.json");
+          memory = await res.json();
+        } catch {
+          memory = { videos: [] };
+        }
+        // Only full re-render if video count changed (avoids restarting video playback)
+        if (memory.videos.length !== lastVideoCount) {
+          lastVideoCount = memory.videos.length;
+          render();
+        }
+      }
+
+      function el(tag, attrs, ...children) {
+        const e = document.createElement(tag);
+        if (attrs)
+          Object.entries(attrs).forEach(([k, v]) => {
+            if (k === "class") e.className = v;
+            else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+            else if (k === "style" && typeof v === "object")
+              Object.assign(e.style, v);
+            else e.setAttribute(k, v);
+          });
+        children.flat().forEach((c) => {
+          if (typeof c === "string") e.appendChild(document.createTextNode(c));
+          else if (c) e.appendChild(c);
+        });
+        return e;
+      }
+
+      function formatNum(n) {
+        if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
+        if (n >= 1e3) return (n / 1e3).toFixed(1) + "K";
+        return String(n);
+      }
+
+      function timeAgo(ts) {
+        const diff = Date.now() - new Date(ts).getTime();
+        const min = Math.floor(diff / 60000);
+        if (min < 1) return "just now";
+        if (min < 60) return min + "m ago";
+        const hr = Math.floor(min / 60);
+        if (hr < 24) return hr + "h ago";
+        return Math.floor(hr / 24) + "d ago";
+      }
+
+      function render() {
+        renderStats();
+        renderTerminal();
+        if (!selectedId && memory.videos.length > 0) {
+          const latest = memory.videos[memory.videos.length - 1];
+          selectedId = latest.id;
+        }
+        renderGrid();
+        if (selectedId) {
+          const v = memory.videos.find((v) => v.id === selectedId);
+          if (v) renderDetail(v);
+        }
+      }
+
+      function renderStats() {
+        const container = document.getElementById("headerStats");
+        container.replaceChildren();
+        const total = memory.videos.length;
+        const avgRet = total
+          ? (
+              memory.videos.reduce(
+                (s, v) => s + v.mockEngagement.retention,
+                0,
+              ) / total
+            ).toFixed(0)
+          : "0";
+        const totalViews = memory.videos.reduce(
+          (s, v) => s + v.mockEngagement.views,
+          0,
+        );
+        [
+          [String(total), "Videos"],
+          [formatNum(totalViews), "Est. Views"],
+          [avgRet + "%", "Avg Retention"],
+        ].forEach(([val, label]) => {
+          container.appendChild(
+            el(
+              "div",
+              { class: "stat-item" },
+              el("div", { class: "value" }, val),
+              el("div", { class: "label" }, label),
+            ),
+          );
+        });
+      }
+
+      function renderTerminal() {
+        const term = document.getElementById("terminal");
+        const banner = document.getElementById("liveBanner");
+        if (!memory.videos.length) return;
+
+        const latest = memory.videos[memory.videos.length - 1];
+        banner.style.display = "flex";
+        document.getElementById("lastCycleTime").textContent = timeAgo(
+          latest.timestamp,
+        );
+
+        term.replaceChildren();
+        // Show last 5 videos as agent log entries
+        memory.videos.slice(-5).forEach((v) => {
+          const time = new Date(v.timestamp).toLocaleTimeString();
+          term.appendChild(
+            el(
+              "div",
+              { class: "line" },
+              el("span", { class: "ts" }, "[" + time + "]"),
+              document.createTextNode(" "),
+              el("span", { class: "agent" }, "agent"),
+              document.createTextNode(
+                " Generated: " + (v.script?.title || v.topic).slice(0, 70),
+              ),
+            ),
+          );
+        });
+        // Add a "waiting" line
+        term.appendChild(
+          el(
+            "div",
+            { class: "line" },
+            el(
+              "span",
+              { class: "ts" },
+              "[" + new Date().toLocaleTimeString() + "]",
+            ),
+            document.createTextNode(" "),
+            el("span", { class: "agent" }, "agent"),
+            document.createTextNode(" Monitoring trends... next cycle pending"),
+          ),
+        );
+        term.scrollTop = term.scrollHeight;
+      }
+
+      function renderGrid() {
+        const container = document.getElementById("videoGrid");
+        container.replaceChildren();
+        if (!memory.videos.length) {
+          container.appendChild(
+            el(
+              "div",
+              { class: "empty-state" },
+              el("div", { class: "ghost" }, "\u{1F47B}"),
+              el("p", null, "No videos yet. Run: npx tsx src/index.ts run"),
+            ),
+          );
+          return;
+        }
+        memory.videos
+          .slice()
+          .reverse()
+          .forEach((v) => {
+            const baseDir = v.outputPath.replace(/ghostfeed_\d+\.mp4$/, "");
+            const thumbPath = baseDir + "segment_0.webp";
+            const retColor =
+              v.mockEngagement.retention > 60
+                ? "#22c55e"
+                : v.mockEngagement.retention > 40
+                  ? "#f97316"
+                  : "#ef4444";
+            const card = el(
+              "div",
+              {
+                class: "video-card" + (v.id === selectedId ? " active" : ""),
+                onclick: () => selectVideo(v.id),
+              },
+              el("img", {
+                class: "video-thumb",
+                src: "/" + thumbPath,
+                alt: "",
+              }),
+              el(
+                "div",
+                { class: "video-info" },
+                el("div", { class: "niche-badge" }, v.niche),
+                el("div", { class: "video-title" }, v.script?.title || v.topic),
+                el(
+                  "div",
+                  { class: "video-meta" },
+                  el(
+                    "span",
+                    null,
+                    formatNum(v.mockEngagement.views) + " views",
+                  ),
+                  el("span", null, v.mockEngagement.retention + "% ret"),
+                  el("span", null, timeAgo(v.timestamp)),
+                ),
+                el(
+                  "div",
+                  { class: "retention-bar" },
+                  el("div", {
+                    class: "retention-fill",
+                    style: {
+                      width: v.mockEngagement.retention + "%",
+                      background: retColor,
+                    },
+                  }),
+                ),
+              ),
+            );
+            card.querySelector("img").addEventListener("error", function () {
+              // Fallback: try .png if .webp fails (older videos used PNG)
+              if (this.src.endsWith(".webp")) {
+                this.src = "/" + baseDir + "segment_0.png";
+              } else {
+                this.style.display = "none";
+              }
+            });
+            container.appendChild(card);
+          });
+      }
+
+      function selectVideo(id) {
+        selectedId = id;
+        const v = memory.videos.find((v) => v.id === id);
+        if (v) renderDetail(v);
+        renderGrid();
+      }
+
+      function renderDetail(v) {
+        const container = document.getElementById("detailPanel");
+        container.replaceChildren();
+
+        const video = el("video", { controls: "", autoplay: "", muted: "" });
+        video.appendChild(
+          el("source", { src: "/" + v.outputPath, type: "video/mp4" }),
+        );
+
+        const segList = el(
+          "ul",
+          { class: "segment-list" },
+          ...(v.script?.segments || []).map((s, i) =>
+            el(
+              "li",
+              null,
+              el("span", { class: "seg-num" }, String(i + 1)),
+              s.text,
+            ),
+          ),
+        );
+
+        // Agent decision terminal block
+        const agentBlock = el(
+          "div",
+          { class: "agent-decision" },
+          el("div", null, el("span", { class: "key" }, "niche: "), v.niche),
+          el("div", null, el("span", { class: "key" }, "topic: "), v.topic),
+          el("div", null, el("span", { class: "key" }, "angle: "), v.angle),
+          el(
+            "div",
+            null,
+            el("span", { class: "key" }, "generated: "),
+            new Date(v.timestamp).toLocaleString(),
+          ),
+          el(
+            "div",
+            null,
+            el("span", { class: "key" }, "structure: "),
+            v.script?.structure || "standard",
+          ),
+        );
+
+        container.append(
+          el("div", { class: "section-title" }, v.script?.title || v.topic),
+          el("div", { class: "player-container" }, video),
+          el(
+            "div",
+            { class: "detail-section" },
+            el(
+              "div",
+              { class: "engagement-grid" },
+              el(
+                "div",
+                { class: "eng-metric" },
+                el(
+                  "div",
+                  { class: "eng-value" },
+                  formatNum(v.mockEngagement.views),
+                ),
+                el("div", { class: "eng-label" }, "Views"),
+              ),
+              el(
+                "div",
+                { class: "eng-metric" },
+                el(
+                  "div",
+                  { class: "eng-value" },
+                  formatNum(v.mockEngagement.likes),
+                ),
+                el("div", { class: "eng-label" }, "Likes"),
+              ),
+              el(
+                "div",
+                { class: "eng-metric" },
+                el(
+                  "div",
+                  { class: "eng-value" },
+                  v.mockEngagement.retention + "%",
+                ),
+                el("div", { class: "eng-label" }, "Retention"),
+              ),
+            ),
+          ),
+          el(
+            "div",
+            { class: "detail-section" },
+            el("h3", null, "Hook"),
+            el(
+              "div",
+              { class: "hook-text" },
+              "\u201C" + (v.script?.hook || "") + "\u201D",
+            ),
+          ),
+          el(
+            "div",
+            { class: "detail-section" },
+            el("h3", null, "Script Segments"),
+            segList,
+          ),
+          el(
+            "div",
+            { class: "detail-section" },
+            el("h3", null, "Call to Action"),
+            el("p", null, v.script?.cta || ""),
+          ),
+          el(
+            "div",
+            { class: "detail-section" },
+            el("h3", null, "Agent Decision"),
+            agentBlock,
+          ),
+        );
+      }
+
+      loadData();
+      setInterval(loadData, 5000);
+    </script>
+  </body>
+</html>

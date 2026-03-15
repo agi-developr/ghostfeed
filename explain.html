@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GhostFeed — How It Works</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: #fff;
+        color: #000;
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      .page-header {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px 20px;
+        border-bottom: 2px solid #000;
+      }
+      .page-header h1 {
+        font-size: 2.5em;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+      .page-header .sub {
+        font-style: italic;
+        color: #555;
+        margin-top: 4px;
+      }
+
+      .content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      /* Pipeline diagram */
+      .pipeline {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        margin-bottom: 50px;
+        overflow-x: auto;
+      }
+      .pipe-stage {
+        flex: 1;
+        min-width: 180px;
+        padding: 20px 16px;
+        border: 1px solid #ddd;
+        border-right: none;
+        position: relative;
+      }
+      .pipe-stage:last-child {
+        border-right: 1px solid #ddd;
+      }
+      .pipe-stage:nth-child(odd) {
+        background: #fafafa;
+      }
+      .pipe-stage .stage-num {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #f97316;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .pipe-stage h3 {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+      }
+      .pipe-stage p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #666;
+        line-height: 1.5;
+      }
+      .pipe-stage .tech {
+        margin-top: 10px;
+        font-family: "SF Mono", Monaco, Menlo, monospace;
+        font-size: 10px;
+        color: #999;
+      }
+      .pipe-arrow {
+        position: absolute;
+        right: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        font-size: 18px;
+        color: #f97316;
+        background: #fff;
+        padding: 2px;
+      }
+
+      /* Agent cards */
+      .agents-title {
+        font-size: 1.8em;
+        font-weight: 700;
+        margin-bottom: 24px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+      .agent-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+        margin-bottom: 50px;
+      }
+      .agent-card {
+        border: 1px solid #ddd;
+        padding: 20px;
+      }
+      .agent-card h3 {
+        font-family: "SF Mono", Monaco, Menlo, monospace;
+        font-size: 14px;
+        color: #f97316;
+        margin-bottom: 4px;
+      }
+      .agent-card .role {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+        margin-bottom: 10px;
+      }
+      .agent-card p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .agent-card .io {
+        margin-top: 12px;
+        font-family: "SF Mono", Monaco, Menlo, monospace;
+        font-size: 11px;
+        background: #f5f5f5;
+        padding: 8px 12px;
+        line-height: 1.6;
+      }
+      .agent-card .io .k {
+        color: #f97316;
+      }
+
+      /* Stack */
+      .stack-section {
+        border-top: 2px solid #000;
+        padding-top: 40px;
+        margin-bottom: 40px;
+      }
+      .stack-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+      }
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      .stack-item {
+        border: 1px solid #ddd;
+        padding: 16px;
+      }
+      .stack-item h4 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .stack-item p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .footer {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+        border-top: 1px solid #ddd;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #999;
+      }
+
+      @media (max-width: 700px) {
+        .pipeline {
+          flex-direction: column;
+        }
+        .pipe-arrow {
+          display: none;
+        }
+        .pipe-stage {
+          border-right: 1px solid #ddd;
+          border-bottom: none;
+        }
+        .pipe-stage:last-child {
+          border-bottom: 1px solid #ddd;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="/nav.js"></script>
+
+    <div class="page-header">
+      <h1>Architecture</h1>
+      <div class="sub">Five agents, one pipeline, zero humans.</div>
+    </div>
+
+    <div class="content">
+      <!-- Pipeline diagram -->
+      <div class="pipeline">
+        <div class="pipe-stage">
+          <div class="stage-num">Phase 1</div>
+          <h3>Trend Research</h3>
+          <p>
+            The Trend Scout agent analyzes the niche, identifies trending
+            topics, and selects a unique angle that maximizes engagement
+            potential.
+          </p>
+          <div class="tech">GPT-4o / Claude</div>
+          <div class="pipe-arrow">-></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="stage-num">Phase 2</div>
+          <h3>Script Writing</h3>
+          <p>
+            The Scriptwriter crafts a hook-first, multi-segment script with a
+            strong opening, emotional arc, and call to action. Optimized for
+            short-form retention.
+          </p>
+          <div class="tech">GPT-4o / Claude</div>
+          <div class="pipe-arrow">-></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="stage-num">Phase 3</div>
+          <h3>Visual Generation</h3>
+          <p>
+            The Visual Director generates scene-by-scene images matching the
+            script segments. Each image follows the niche aesthetic in 9:16
+            vertical format.
+          </p>
+          <div class="tech">DALL-E 3 / gpt-image-1</div>
+          <div class="pipe-arrow">-></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="stage-num">Phase 4</div>
+          <h3>Voice Synthesis</h3>
+          <p>
+            Voice Forge synthesizes narration from the script using
+            text-to-speech. The voice matches the niche tone — calm for
+            stoicism, energetic for productivity.
+          </p>
+          <div class="tech">OpenAI TTS / ElevenLabs</div>
+          <div class="pipe-arrow">-></div>
+        </div>
+        <div class="pipe-stage">
+          <div class="stage-num">Phase 5</div>
+          <h3>Video Assembly</h3>
+          <p>
+            The Editor combines images, audio, and burned-in captions into a
+            final MP4. Handles transitions, timing sync, and caption styling via
+            FFmpeg.
+          </p>
+          <div class="tech">FFmpeg + ASS subtitles</div>
+        </div>
+      </div>
+
+      <!-- Agent descriptions -->
+      <div class="agents-title">The Five Agents</div>
+      <div class="agent-grid">
+        <div class="agent-card">
+          <h3>trend-scout</h3>
+          <div class="role">Research Agent</div>
+          <p>
+            Scans trending topics within the configured niche. Evaluates
+            engagement potential, identifies unique angles, and avoids overused
+            topics from content memory.
+          </p>
+          <div class="io">
+            <span class="k">in:</span> niche config, content memory<br />
+            <span class="k">out:</span> { topic, angle, reasoning }
+          </div>
+        </div>
+        <div class="agent-card">
+          <h3>scriptwriter</h3>
+          <div class="role">Content Agent</div>
+          <p>
+            Writes hook-first scripts optimized for short-form retention.
+            Structures content into timed segments with visual directions for
+            each scene.
+          </p>
+          <div class="io">
+            <span class="k">in:</span> topic, angle, niche tone<br />
+            <span class="k">out:</span> { hook, segments[], cta, title }
+          </div>
+        </div>
+        <div class="agent-card">
+          <h3>visual-director</h3>
+          <div class="role">Creative Agent</div>
+          <p>
+            Generates image prompts for each script segment, then produces
+            images via DALL-E 3. Maintains visual consistency across scenes
+            using the niche aesthetic.
+          </p>
+          <div class="io">
+            <span class="k">in:</span> script segments, aesthetic<br />
+            <span class="k">out:</span> segment_0.webp ... segment_N.webp
+          </div>
+        </div>
+        <div class="agent-card">
+          <h3>voice-forge</h3>
+          <div class="role">Audio Agent</div>
+          <p>
+            Converts the full script narration into spoken audio using
+            text-to-speech. Selects voice profiles that match the niche tone and
+            pacing.
+          </p>
+          <div class="io">
+            <span class="k">in:</span> script text, voice config<br />
+            <span class="k">out:</span> voiceover.mp3
+          </div>
+        </div>
+        <div class="agent-card">
+          <h3>editor</h3>
+          <div class="role">Assembly Agent</div>
+          <p>
+            Orchestrates the final video: syncs images to audio timing,
+            generates ASS subtitle files, burns captions into the video, and
+            exports the final MP4.
+          </p>
+          <div class="io">
+            <span class="k">in:</span> images, audio, script<br />
+            <span class="k">out:</span> ghostfeed_XXXXX.mp4
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack -->
+      <div class="stack-section">
+        <h2>Tech Stack</h2>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <h4>Runtime</h4>
+            <p>Node.js + TypeScript (tsx)</p>
+          </div>
+          <div class="stack-item">
+            <h4>LLM</h4>
+            <p>OpenAI GPT-4o for script + trend research</p>
+          </div>
+          <div class="stack-item">
+            <h4>Image Gen</h4>
+            <p>DALL-E 3 / gpt-image-1 (1024x1792)</p>
+          </div>
+          <div class="stack-item">
+            <h4>TTS</h4>
+            <p>OpenAI Text-to-Speech API</p>
+          </div>
+          <div class="stack-item">
+            <h4>Video</h4>
+            <p>FFmpeg with ASS subtitle filter</p>
+          </div>
+          <div class="stack-item">
+            <h4>Dashboard</h4>
+            <p>Vanilla HTML/JS, zero dependencies</p>
+          </div>
+          <div class="stack-item">
+            <h4>Server</h4>
+            <p>Node HTTP server (serve.ts)</p>
+          </div>
+          <div class="stack-item">
+            <h4>Memory</h4>
+            <p>JSON file (memory.json) — tracks all generated content</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      GhostFeed — Built at Hackathon 2026. Fully autonomous AI content pipeline.
+    </div>
+  </body>
+</html>

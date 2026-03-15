@@ -1,6 +1,8 @@
 import { program } from "commander";
-import type { NicheConfig } from "./types.js";
+import type { NicheConfig, RunConfig } from "./types.js";
 import { runOnce, runLoop } from "./loop.js";
+import { runEducational } from "./loop-edu.js";
+import { gutHealthNiche, gutHealthTopics } from "./niches/gut-health.js";
 import { header, log } from "./ui.js";
 
 const PRESET_NICHES: Record<string, NicheConfig> = {
@@ -90,13 +92,21 @@ program
     "stoic",
   )
   .option("--custom-niche <name>", "Custom niche name")
+  .option("--config <json>", "RunConfig JSON overrides")
   .action(async (opts) => {
     const niche = opts.customNiche
       ? createCustomNiche(opts.customNiche)
       : (PRESET_NICHES[opts.niche] ?? PRESET_NICHES.stoic);
 
+    let parsedConfig: RunConfig | undefined;
+    if (opts.config) {
+      parsedConfig = JSON.parse(opts.config) as RunConfig;
+      if (parsedConfig.tone) niche.tone = parsedConfig.tone;
+      if (parsedConfig.aesthetic) niche.aesthetic = parsedConfig.aesthetic;
+    }
+
     printBanner();
-    await runOnce(niche);
+    await runOnce(niche, parsedConfig);
   });
 
 program
@@ -120,6 +130,30 @@ program
       const niche = PRESET_NICHES[n]!;
       log("info", `\n>>> Demo: ${niche.name} <<<`);
       await runOnce(niche);
+    }
+  });
+
+program
+  .command("educate")
+  .description("Generate educational content (gut health)")
+  .option("-t, --topic <index>", "Topic index (0-5) or 'all'", "0")
+  .action(async (opts) => {
+    printBanner();
+    console.log("  Mode: EDUCATIONAL\n");
+
+    if (opts.topic === "all") {
+      for (let i = 0; i < gutHealthTopics.length; i++) {
+        const t = gutHealthTopics[i];
+        log(
+          "info",
+          `\n>>> Topic ${i + 1}/${gutHealthTopics.length}: ${t.topic} <<<`,
+        );
+        await runEducational(gutHealthNiche, t.topic, t.structure, t.knowledge);
+      }
+    } else {
+      const idx = parseInt(opts.topic);
+      const t = gutHealthTopics[idx] ?? gutHealthTopics[0];
+      await runEducational(gutHealthNiche, t.topic, t.structure, t.knowledge);
     }
   });
 

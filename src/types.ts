@@ -29,6 +29,19 @@ export interface ContentMemory {
   videos: VideoRecord[];
 }
 
+export interface RunConfig {
+  voice?: string;
+  imageModel?: string;
+  structure?: string;
+  tone?: string;
+  aesthetic?: string;
+  segments?: number;
+  durationSec?: number;
+  captionFontSize?: number;
+  fadeDuration?: number;
+  crf?: number;
+}
+
 export interface VideoRecord {
   id: string;
   timestamp: string;
@@ -37,6 +50,7 @@ export interface VideoRecord {
   angle: string;
   script: Script;
   outputPath: string;
+  config?: RunConfig;
   mockEngagement: {
     views: number;
     likes: number;

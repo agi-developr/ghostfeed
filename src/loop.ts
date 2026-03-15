@@ -1,4 +1,4 @@
-import type { NicheConfig } from "./types.js";
+import type { NicheConfig, RunConfig } from "./types.js";
 import { scoutTrends } from "./agents/trend-scout.js";
 import { pickBestTrend } from "./agents/strategist.js";
 import { writeScript } from "./agents/script-writer.js";
@@ -10,7 +10,10 @@ import { loadMemory, saveVideoRecord, getInsights } from "./memory.js";
 import { log, header, divider } from "./ui.js";
 import * as path from "path";
 
-export async function runOnce(niche: NicheConfig): Promise<string> {
+export async function runOnce(
+  niche: NicheConfig,
+  config?: RunConfig,
+): Promise<string> {
   const startTime = Date.now();
   const memory = await loadMemory();
 
@@ -37,10 +40,18 @@ export async function runOnce(niche: NicheConfig): Promise<string> {
     niche.name,
   );
 
+  // Apply tone/aesthetic overrides from config
+  if (config?.tone) niche = { ...niche, tone: config.tone };
+  if (config?.aesthetic) niche = { ...niche, aesthetic: config.aesthetic };
+
   // Step 3: Write script
   divider();
   header("Phase 3: Script Generation");
-  const script = await writeScript(selected, niche);
+  const script = await writeScript(selected, niche, {
+    structure: config?.structure,
+    segments: config?.segments,
+    durationSec: config?.durationSec,
+  });
 
   // Print the script for demo visibility
   divider();
@@ -66,12 +77,16 @@ export async function runOnce(niche: NicheConfig): Promise<string> {
   ].join(" ");
 
   const [images, voiceover] = await Promise.all([
-    generateImages(script.segments, runDir),
-    generateVoiceover(fullNarration, runDir),
+    generateImages(script.segments, runDir, config?.imageModel),
+    generateVoiceover(fullNarration, runDir, config?.voice),
   ]);
 
   // Step 5: Generate captions
-  const captions = await generateCaptions(script, runDir);
+  const captions = await generateCaptions(
+    script,
+    runDir,
+    config?.captionFontSize,
+  );
 
   // Step 6: Assemble video
   divider();
@@ -82,6 +97,7 @@ export async function runOnce(niche: NicheConfig): Promise<string> {
     captions,
     script,
     runDir,
+    { fadeDuration: config?.fadeDuration, crf: config?.crf },
   );
 
   // Step 7: Save to memory

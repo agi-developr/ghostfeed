@@ -14,8 +14,10 @@ function formatTime(seconds: number): string {
 export async function generateCaptions(
   script: Script,
   outputDir: string,
+  fontSize?: number,
 ): Promise<string> {
-  log("caption", "Generating captions (ASS format)...");
+  const FONT_SIZE = fontSize ?? 80;
+  log("caption", `Generating captions (ASS format, ${FONT_SIZE}pt)...`);
   await fs.mkdir(outputDir, { recursive: true });
   const outPath = path.join(outputDir, "captions.ass");
 
@@ -29,7 +31,7 @@ WrapStyle: 0
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Arial,80,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,4,0,2,40,40,200,1
+Style: Default,Arial Black,${FONT_SIZE},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,4,2,5,40,40,60,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -59,11 +61,17 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     }
   }
 
+  // Add CTA as final caption (estimated 4s)
+  if (script.cta) {
+    const ctaEnd = currentTime + 4;
+    ass += `Dialogue: 0,${formatTime(currentTime)},${formatTime(ctaEnd)},Default,,0,0,0,,${escapeASS(script.cta)}\n`;
+  }
+
   await fs.writeFile(outPath, ass);
   log("caption", `Captions saved (${script.segments.length} segments)`);
   return outPath;
 }
 
 function escapeASS(text: string): string {
-  return text.replace(/\n/g, "\\N").replace(/,/g, "\\,");
+  return text.replace(/\n/g, "\\N");
 }
