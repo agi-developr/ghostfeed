@@ -8,11 +8,13 @@ import { generateCaptions } from "./forge/captions.js";
 import { assembleVideo } from "./forge/assembler.js";
 import { loadMemory, saveVideoRecord, getInsights } from "./memory.js";
 import { log, header, divider } from "./ui.js";
+import { publishVideo, type PublishConfig } from "./publishers/index.js";
 import * as path from "path";
 
 export async function runOnce(
   niche: NicheConfig,
   config?: RunConfig,
+  publish?: PublishConfig,
 ): Promise<string> {
   const startTime = Date.now();
   const memory = await loadMemory();
@@ -111,6 +113,25 @@ export async function runOnce(
     videoPath,
   );
 
+  // Step 8: Auto-publish (if configured)
+  if (publish && (publish.tiktok || publish.youtube)) {
+    divider();
+    header("Phase 7: Publishing");
+    const publishResults = await publishVideo(
+      videoPath,
+      niche.name,
+      script.title,
+      publish,
+    );
+    for (const r of publishResults) {
+      if (r.error) {
+        log("error", `${r.platform}: ${r.error}`);
+      } else {
+        log("done", `${r.platform}: ${r.url ?? r.publishId}`);
+      }
+    }
+  }
+
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
   divider();
   header("Cycle Complete");
@@ -128,12 +149,23 @@ export async function runOnce(
 export async function runLoop(
   niche: NicheConfig,
   intervalMin: number = 5,
+  publish?: PublishConfig,
 ): Promise<void> {
   log("loop", `Starting autonomous loop (every ${intervalMin} min)`);
 
+  // Auto-detect publish config from env if not passed
+  const resolvedPublish: PublishConfig = publish ?? {
+    tiktok: process.env.TIKTOK_ACCESS_TOKEN
+      ? { accessToken: process.env.TIKTOK_ACCESS_TOKEN }
+      : undefined,
+    youtube: process.env.YOUTUBE_ACCESS_TOKEN
+      ? { accessToken: process.env.YOUTUBE_ACCESS_TOKEN }
+      : undefined,
+  };
+
   while (true) {
     try {
-      await runOnce(niche);
+      await runOnce(niche, undefined, resolvedPublish);
     } catch (err: any) {
       log("error", `Cycle failed: ${err.message}`);
     }
