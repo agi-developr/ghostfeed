@@ -38,3 +38,10 @@ create policy "Users update own videos" on videos
 alter table subscriptions enable row level security;
 create policy "Users see own sub" on subscriptions
   for select using (auth.uid() = user_id);
+
+-- Waitlist
+create table if not exists waitlist (
+  id uuid primary key default gen_random_uuid(),
+  email text unique not null,
+  created_at timestamptz default now()
+);

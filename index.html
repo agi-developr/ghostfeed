@@ -378,16 +378,34 @@
     </div>
 
     <script>
-      document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+      document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const email = document.getElementById('waitlistEmail').value;
-        // Store locally for now, replace with real endpoint later
-        const existing = JSON.parse(localStorage.getItem('gf_waitlist') || '[]');
-        existing.push({ email, ts: Date.now() });
-        localStorage.setItem('gf_waitlist', JSON.stringify(existing));
-        document.getElementById('waitlistMsg').style.display = 'block';
-        document.getElementById('waitlistEmail').value = '';
-        // TODO: POST to /api/waitlist when Stripe/Supabase is set up
+        const btn = this.querySelector('button[type="submit"]');
+        btn.textContent = 'Joining...';
+        btn.disabled = true;
+        try {
+          const res = await fetch('/api/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          if (res.ok) {
+            document.getElementById('waitlistMsg').style.display = 'block';
+            document.getElementById('waitlistEmail').value = '';
+          } else {
+            // Fallback: store locally
+            const existing = JSON.parse(localStorage.getItem('gf_waitlist') || '[]');
+            existing.push({ email, ts: Date.now() });
+            localStorage.setItem('gf_waitlist', JSON.stringify(existing));
+            document.getElementById('waitlistMsg').style.display = 'block';
+            document.getElementById('waitlistEmail').value = '';
+          }
+        } catch {
+          document.getElementById('waitlistMsg').style.display = 'block';
+        }
+        btn.textContent = 'Get Early Access';
+        btn.disabled = false;
       });
     </script>
 
