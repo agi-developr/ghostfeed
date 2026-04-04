@@ -45,3 +45,22 @@ create table if not exists waitlist (
   email text unique not null,
   created_at timestamptz default now()
 );
+
+-- Platform connections (TikTok, YouTube OAuth tokens)
+create table if not exists platform_connections (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id),
+  platform text not null,
+  platform_user_id text,
+  access_token text not null,
+  refresh_token text,
+  expires_at timestamptz,
+  updated_at timestamptz default now(),
+  unique(user_id, platform)
+);
+
+alter table platform_connections enable row level security;
+create policy "Users see own connections" on platform_connections
+  for select using (auth.uid() = user_id);
+create policy "Users manage own connections" on platform_connections
+  for all using (auth.uid() = user_id);
