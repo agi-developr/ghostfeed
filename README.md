@@ -1,43 +1,70 @@
 # GhostFeed
 
-Autonomous AI agent that runs faceless content channels end-to-end. One command generates script, images, voiceover, captions, and assembles a TikTok-ready vertical video.
+**Autonomous AI agent that runs your faceless content channel end-to-end.**
+
+One command → trending topic research → script → images → voiceover → captions → MP4.
 
 ```
-Brain (LLM) ──► Script ──► Images (Flux) ──► Voice (edge-tts) ──► Captions (ASS) ──► FFmpeg ──► MP4
-                  │                                                                              │
-                  └──────────────────── memory.json ◄────────────────────────────────────────────┘
+Brain (LLM) ──► Script ──► Images (Flux) ──► Voice (edge-tts) ──► Captions ──► FFmpeg ──► MP4
 ```
 
 ## Quick Start
 
 ```bash
-cp .env.example .env     # add NEBIUS_API_KEY
+cp .env.example .env   # add NEBIUS_API_KEY
 npm install
 npx tsx src/index.ts run --niche stoic
 ```
 
 ## Commands
 
-| Command                        | Description                                                     |
-| ------------------------------ | --------------------------------------------------------------- |
-| `run --niche <name>`           | Generate one video (stoic, ai, productivity, psychology, money) |
-| `run --custom-niche "topic"`   | Generate with a custom niche                                    |
-| `loop --niche <name> -i <min>` | Autonomous loop (default 5 min interval)                        |
-| `demo`                         | Generate across multiple niches                                 |
-| `educate -t <index\|all>`      | Educational content (gut health)                                |
+| Command | Description |
+|---|---|
+| `run --niche <name>` | Generate one video |
+| `run --custom-niche "topic"` | Custom niche |
+| `loop --niche <name> -i <min>` | Autonomous loop |
+| `demo` | Generate across all niches |
 
-## Dashboard
+**Niches:** stoic · ai · productivity · psychology · money · gut-health
+
+## Web App (SaaS)
 
 ```bash
-npx tsx serve.ts
-# open http://localhost:3333
+npm run dev    # Next.js app on localhost:3000
 ```
 
-## Stack
+### Stack
+- **Frontend:** Next.js 14, React, Tailwind
+- **Auth & DB:** Supabase
+- **Payments:** Stripe ($49 / $99 / $299/mo)
+- **Video pipeline:** Nebius (Qwen3 + Flux Schnell) + edge-tts + FFmpeg
 
-- **LLM:** Qwen3-235B via Nebius API (OpenAI-compatible)
-- **Images:** Flux Schnell (Nebius)
-- **Voice:** edge-tts (free, no API key)
-- **Captions:** ASS subtitles burned into video
-- **Assembly:** FFmpeg with Ken Burns motion + crossfades
-- **Dashboard:** Single-file HTML, auto-refreshes from memory.json
+### API Routes
+- `POST /api/stripe/checkout` — create Stripe Checkout session
+- `POST /api/stripe/webhook` — handle Stripe events
+- `POST /api/waitlist` — join waitlist
+- `POST /api/generate-script` — generate video script
+- `POST /api/produce-video` — run full pipeline
+
+## Deploy
+
+```bash
+vercel deploy --prod
+```
+
+Set env vars in Vercel dashboard (see `.env.example`).
+
+## Pricing
+- **Starter** $49/mo — 30 videos, 3 niches
+- **Pro** $99/mo — unlimited, all niches, auto-post
+- **Agency** $299/mo — 10 channels, white-label
+
+## Status
+- [x] Full video pipeline
+- [x] Dashboard UI
+- [x] Landing page + pricing + waitlist
+- [x] Stripe checkout + webhook
+- [x] Supabase schema + RLS
+- [ ] Stripe price IDs (needs account setup)
+- [ ] Auto-post to TikTok/YouTube Shorts
+- [ ] Vercel deploy (ready, needs env vars)
