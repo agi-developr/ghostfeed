@@ -235,8 +235,8 @@
         all without human intervention.
       </div>
       <div class="cta-buttons">
-        <a href="/spawn.html" class="btn btn-primary">Try It Live</a>
-        <a href="/dashboard.html" class="btn btn-secondary">View Dashboard</a>
+        <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+        <a href="/dashboard.html" class="btn btn-secondary">See It Work</a>
       </div>
     </div>
 
@@ -333,9 +333,63 @@
       </div>
     </div>
 
-    <div class="footer">
-      GhostFeed — Built at Hackathon 2026. Fully autonomous AI content pipeline.
+    <!-- Pricing -->
+    <div class="how-section" id="pricing">
+      <div class="how-title">Pricing</div>
+      <div class="steps">
+        <div class="step" style="border: 2px solid #e5e7eb; padding: 32px 24px;">
+          <div class="step-num">★</div>
+          <h3 style="font-size:1.4em; margin-bottom:8px;">Starter</h3>
+          <div style="font-family:Arial,sans-serif; font-size:2em; font-weight:700; margin-bottom:4px;">$49<span style="font-size:0.5em; color:#888;">/mo</span></div>
+          <div style="font-family:Arial,sans-serif; font-size:13px; color:#666; margin-bottom:24px; line-height:1.6;">30 videos/month<br>3 niches<br>MP4 download</div>
+          <a href="#waitlist" class="btn btn-secondary" style="display:block; text-align:center;">Join Waitlist</a>
+        </div>
+        <div class="step" style="border: 2px solid #000; padding: 32px 24px; background:#000; color:#fff;">
+          <div class="step-num" style="background:#f97316;">✦</div>
+          <h3 style="font-size:1.4em; margin-bottom:8px; color:#fff;">Pro</h3>
+          <div style="font-family:Arial,sans-serif; font-size:2em; font-weight:700; margin-bottom:4px; color:#fff;">$99<span style="font-size:0.5em; color:#888;">/mo</span></div>
+          <div style="font-family:Arial,sans-serif; font-size:13px; color:#aaa; margin-bottom:24px; line-height:1.6;">Unlimited videos<br>All niches + custom<br>Auto-post to TikTok/Shorts</div>
+          <a href="#waitlist" class="btn btn-primary" style="display:block; text-align:center; background:#f97316; border:none;">Join Waitlist</a>
+        </div>
+        <div class="step" style="border: 2px solid #e5e7eb; padding: 32px 24px;">
+          <div class="step-num">∞</div>
+          <h3 style="font-size:1.4em; margin-bottom:8px;">Agency</h3>
+          <div style="font-family:Arial,sans-serif; font-size:2em; font-weight:700; margin-bottom:4px;">$299<span style="font-size:0.5em; color:#888;">/mo</span></div>
+          <div style="font-family:Arial,sans-serif; font-size:13px; color:#666; margin-bottom:24px; line-height:1.6;">10 channels<br>White-label output<br>Priority support</div>
+          <a href="#waitlist" class="btn btn-secondary" style="display:block; text-align:center;">Join Waitlist</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Waitlist -->
+    <div class="how-section" id="waitlist" style="text-align:center; border-top: 2px solid #000;">
+      <div class="how-title">Join the Waitlist</div>
+      <p style="font-family:Arial,sans-serif; font-size:14px; color:#666; margin-bottom:32px; max-width:500px; margin-left:auto; margin-right:auto;">Early access. Lock in launch pricing. First 100 get 3 months free on Pro.</p>
+      <form id="waitlistForm" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; max-width:480px; margin:0 auto;">
+        <input type="email" id="waitlistEmail" placeholder="your@email.com" required
+          style="flex:1; min-width:220px; padding:14px 18px; border:2px solid #000; font-family:Arial,sans-serif; font-size:14px; outline:none;">
+        <button type="submit" class="btn btn-primary">Get Early Access</button>
+      </form>
+      <div id="waitlistMsg" style="font-family:Arial,sans-serif; font-size:14px; margin-top:16px; color:#22c55e; display:none;">You're on the list. We'll be in touch.</div>
+    </div>
+
+    <div class="footer">
+      GhostFeed — Autonomous AI content pipeline. © 2026
+    </div>
+
+    <script>
+      document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('waitlistEmail').value;
+        // Store locally for now, replace with real endpoint later
+        const existing = JSON.parse(localStorage.getItem('gf_waitlist') || '[]');
+        existing.push({ email, ts: Date.now() });
+        localStorage.setItem('gf_waitlist', JSON.stringify(existing));
+        document.getElementById('waitlistMsg').style.display = 'block';
+        document.getElementById('waitlistEmail').value = '';
+        // TODO: POST to /api/waitlist when Stripe/Supabase is set up
+      });
+    </script>
 
     <script>
       fetch("/output/memory.json")

@@ -1,9 +1,9 @@
 (function () {
   var pages = [
     { href: "/", label: "Home" },
+    { href: "/#pricing", label: "Pricing" },
     { href: "/dashboard.html", label: "Dashboard" },
-    { href: "/spawn.html", label: "Try It Live" },
-    { href: "/explain.html", label: "How It Works" },
+    { href: "/#waitlist", label: "Early Access" },
   ];
 
   var current = window.location.pathname;

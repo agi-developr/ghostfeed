@@ -81,6 +81,841 @@
         "likes": 1136,
         "retention": 42.3
       }
+    },
+    {
+      "id": "vid_1773604918262",
+      "timestamp": "2026-03-15T20:01:58.262Z",
+      "niche": "gut health & SIBO",
+      "topic": "Why your bloating isn't just IBS — the SIBO connection",
+      "angle": "patient-journey",
+      "script": {
+        "title": "Your Bloating Isn’t Just ‘In Your Head’ — Here’s What Your GI Doctor Might Be Missing",
+        "hook": "You’re not imagining it. That bloating after every meal? It might not be IBS — it could be SIBO.",
+        "segments": [
+          {
+            "text": "Meet Sarah. She was told for 8 years her bloating was ‘just IBS’ — stress-related, untreatable. But the real culprit? Bacteria growing where they shouldn’t — in her small intestine. That’s SIBO.",
+            "visualPrompt": "A vertical 9:16 medical illustration showing a woman on the left with a translucent abdomen, her small intestine glowing with abnormal bacterial clusters. On the right, a clean, sterile small intestine for contrast. Soft blue tones, clean white background, subtle anatomical labels. Educational diagram as serene art.",
+            "durationSec": 12
+          },
+          {
+            "text": "Think of your small intestine like a quiet hallway — it should be mostly sterile. SIBO is like weeds sprouting in a well-kept garden. Bacteria from the colon overgrow, ferment food, and produce gas — hello, bloating.",
+            "visualPrompt": "A stylized cross-section of the small intestine as a clean, narrow hallway with sparse cells. Then, bacteria (as tiny, glowing rods) multiply like weeds bursting through floor tiles. Microscopic view with soft blues and whites, subtle motion implied. Diagram-as-metaphor.",
+            "durationSec": 10
+          },
+          {
+            "text": "Most IBS diagnoses are guesses — rules-out, not finds. Up to 78% of IBS patients actually have SIBO. Yet, many wait 5–10 years for a breath test that could’ve found it.",
+            "visualPrompt": "A timeline on a soft blue background: 'Year 1: Bloating' → 'Year 3: 'It’s stress'' → 'Year 8: More fiber?' → 'Year 10: Lactulose breath test'. A simple graph shows 78% overlap between IBS and SIBO. Clean, infographic-style, elegant typography.",
+            "durationSec": 10
+          },
+          {
+            "text": "Myths like 'just take probiotics' or 'eat more fiber' can make SIBO worse. Some probiotics add fuel. Fiber feeds the wrong bacteria. You need targeted treatment — not guesswork.",
+            "visualPrompt": "A split screen: left side shows a probiotic capsule with bacteria multiplying in the small intestine (red X). Right shows a targeted antibiotic or herbal antimicrobial clearing bacteria (green check). Soft medical illustration style, gentle contrast.",
+            "durationSec": 8
+          }
+        ],
+        "cta": "If bloating ruins your life, ask for a breath test. SIBO is treatable — you just have to know to look. Follow for gut truths medicine ignores.",
+        "totalDurationSec": 45,
+        "structure": "patient-journey",
+        "keyLearnings": [
+          "SIBO can mimic IBS — up to 78% of IBS patients have it.",
+          "Bloating isn’t normal — it can signal bacterial overgrowth in the small intestine.",
+          "Standard IBS treatment often misses SIBO due to delayed or absent testing."
+        ],
+        "sources": [
+          "Pimentel et al., American Journal of Gastroenterology",
+          "Rezaie et al., North American Consensus on Hydrogen and Methane-Based Breath Testing (2017)"
+        ]
+      },
+      "outputPath": "output/edu_1773604910878/ghostfeed_1773604914917.mp4",
+      "mockEngagement": {
+        "views": 14748,
+        "likes": 503,
+        "retention": 61.95
+      }
+    },
+    {
+      "id": "vid_1773605191323",
+      "timestamp": "2026-03-15T20:06:31.323Z",
+      "niche": "gut health & SIBO",
+      "topic": "Brain fog from SIBO — it's not in your head",
+      "angle": "problem-mechanism-action",
+      "script": {
+        "title": "Brain Fog from SIBO — It’s Not in Your Head (Literally)",
+        "hook": "You’re not stressed. You’re not lazy. So why can’t you think clearly?",
+        "segments": [
+          {
+            "text": "Brain fog isn’t just in your head — it’s in your gut. When SIBO overgrows, bacteria produce D-lactic acid, a neurotoxin that crosses the blood-brain barrier and disrupts mental clarity — like fog rolling into your brain from your intestines.",
+            "visualPrompt": "A vertical 9:16 medical illustration showing a translucent human head with the brain partially clouded in gray mist, connected via a glowing vagus nerve to a cross-section of the small intestine filled with swarming bacteria. Soft blue background, clean anatomical lines. D-lactic acid molecules shown as small red spheres traveling up the nerve and into the brain.",
+            "durationSec": 12
+          },
+          {
+            "text": "These bacteria also produce excess gas — hydrogen and methane — which damage your gut lining and block absorption of B12, iron, and fat-soluble vitamins. Your brain runs on these nutrients. No fuel? No focus.",
+            "visualPrompt": "Cross-sectional diagram of the small intestine with bloated, distended villi. Gas bubbles (labeled H2 and CH4) compress the lining. Arrows show reduced uptake of B12 and iron. A small brain icon at the top dims like a battery running low. Soft white and blue palette, schematic but artistic.",
+            "durationSec": 12
+          },
+          {
+            "text": "And beware: some probiotics make it worse. Lactobacillus strains can overproduce D-lactic acid in SIBO, turning your 'helpful' supplement into a source of brain fog. This isn’t just 'bad luck' — it’s chemistry gone wrong.",
+            "visualPrompt": "Microscopic view of Lactobacillus bacteria converting sugar into D-lactic acid in the gut. A warning sign appears overhead. A person holding their head appears in silhouette at the top. Cool blue tones with subtle red highlights on acid molecules.",
+            "durationSec": 11
+          },
+          {
+            "text": "The good news? Treat the SIBO, and brain fog often lifts in weeks. The gut-brain axis works both ways — heal the gut, and your mind follows.",
+            "visualPrompt": "Split-screen: left side shows dense bacterial overgrowth and foggy brain; right side shows cleared gut lining, healthy villi, and a bright, clear brain. The vagus nerve glows healthy green. Gentle transition animation implied. Clean, hopeful medical art style.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Stop blaming stress. Start investigating your gut. Follow for science-backed gut-brain insights.",
+        "totalDurationSec": 45,
+        "structure": "problem-mechanism-action",
+        "keyLearnings": [
+          "SIBO produces D-lactic acid and metabolites that directly impair brain function",
+          "Nutrient malabsorption from SIBO gas damages cognitive health",
+          "Probiotics can worsen brain fog in SIBO due to D-lactic acid production"
+        ],
+        "sources": [
+          "Rao et al. — Brain fogginess, gas and bloating: D-lactic acidosis (2018)",
+          "Mayer — The Mind-Gut Connection (2016)",
+          "Quigley — Gut-brain axis and neuropsychiatric symptoms"
+        ]
+      },
+      "outputPath": "output/edu_1773605184828/ghostfeed_1773605186499.mp4",
+      "mockEngagement": {
+        "views": 25302,
+        "likes": 953,
+        "retention": 78.88
+      }
+    },
+    {
+      "id": "vid_1773606611680",
+      "timestamp": "2026-03-15T20:30:11.680Z",
+      "niche": "gut health & SIBO",
+      "topic": "Why antibiotics keep failing for SIBO",
+      "angle": "problem-mechanism-action",
+      "script": {
+        "title": "Why Antibiotics Keep Failing for SIBO (And What Actually Works)",
+        "hook": "You took Rifaximin. You felt better... then boom — SIBO came back. Why does this keep happening?",
+        "segments": [
+          {
+            "text": "Here’s the problem: antibiotics like Rifaximin can clear SIBO temporarily, but up to 44% of people relapse within 9 months. Why? Because we’re treating the symptom — not the cause.",
+            "visualPrompt": "A 9:16 vertical medical illustration showing the small intestine glowing with bacterial overgrowth, then fading after antibiotic treatment. Text overlay: '44% relapse rate.' Soft blue tones, clean anatomical cross-section, with a clock ticking forward to show recurrence.",
+            "durationSec": 10
+          },
+          {
+            "text": "The real culprit? A broken 'cleaning wave' in your gut called the Migrating Motor Complex. Every 90 minutes during fasting, it’s supposed to sweep bacteria downstream. But if it’s damaged — often by food poisoning-triggered antibodies — bacteria creep back up and recolonize.",
+            "visualPrompt": "Animated diagram of the small intestine with rhythmic wave-like contractions (MMC) moving from top to bottom. Then, anti-vinculin antibodies attacking nerve cells, causing the waves to stutter and stop. Microscopic view of damaged nerves in soft blue and white.",
+            "durationSec": 12
+          },
+          {
+            "text": "And here’s another layer: biofilms. These slimy shields protect bacteria like a fortress, making antibiotics less effective. Plus, structural issues — like adhesions or a leaky ileocecal valve — let colonic bacteria invade the small intestine.",
+            "visualPrompt": "Close-up microscopic view of biofilm as a translucent dome shielding bacteria. Antibiotics bouncing off like rain on a roof. Inset: a faulty ileocecal valve leaking bacteria from colon to small intestine. Clean, artistic medical diagram in whites and soft blues.",
+            "durationSec": 13
+          },
+          {
+            "text": "So what works? Fix motility. Support the MMC with prokinetics, repair the gut lining, break biofilms, and address root causes — not just rerun another antibiotic script.",
+            "visualPrompt": "Side-by-side comparison: one side shows a broken gut with stalled MMC and biofilms; the other shows restored waves, open valve, clean lumen. Arrows show healing pathway. Educational, hopeful tone.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Stop chasing SIBO with antibiotics alone. Support your gut’s natural cleaning system — follow for science-backed healing strategies.",
+        "totalDurationSec": 45,
+        "structure": "problem-mechanism-action",
+        "keyLearnings": [
+          "SIBO relapse is common because antibiotics don’t fix the root cause — like impaired MMC or biofilms.",
+          "Damage from food poisoning (via anti-vinculin antibodies) can disrupt gut motility long-term.",
+          "Effective treatment requires supporting the MMC, breaking biofilms, and addressing structural issues."
+        ],
+        "sources": [
+          "Pimentel et al. — IBS-Smart testing for anti-CdtB and anti-vinculin",
+          "Siebecker & Sandberg-Lewis — Clinical SIBO protocols",
+          "Quigley, E.M.M. — World Journal of Gastroenterology (2006) on gut motility and bacterial overgrowth"
+        ]
+      },
+      "outputPath": "output/edu_1773606598125/ghostfeed_1773606603552.mp4",
+      "mockEngagement": {
+        "views": 27324,
+        "likes": 1274,
+        "retention": 57.83
+      }
+    },
+    {
+      "id": "vid_1773606717855",
+      "timestamp": "2026-03-15T20:31:57.855Z",
+      "niche": "gut health & SIBO",
+      "topic": "The migrating motor complex — why your gut's cleaning system is broken",
+      "angle": "problem-mechanism-action",
+      "script": {
+        "title": "Why Your Gut’s Housekeeper Is on Strike — And How to Fix It",
+        "hook": "You’re not broken. But your gut’s cleaning crew hasn’t shown up in months.",
+        "segments": [
+          {
+            "text": "Meet the migrating motor complex — your gut’s nightly janitor. Every 90 minutes, when you're fasting, it sends sweeping waves through your small intestine, clearing out bacteria, debris, and leftover food. No fasting? No cleanup. It’s like leaving trash in your house and wondering why the smell won’t go away.",
+            "visualPrompt": "A vertical medical illustration of the small intestine in soft blue and white tones. A rhythmic wave of contraction moves through it like a slow pulse, sweeping tiny particles forward. Labels: 'Migrating Motor Complex (MMC)', 'Fasting State', '90–120 min cycle'. Background: clean, minimal, with a clock icon showing time intervals.",
+            "durationSec": 12
+          },
+          {
+            "text": "Snacking all day? Each bite shuts off the MMC. Constant eating means zero cleaning windows. And if you’ve had food poisoning, your immune system may have mistakenly attacked your gut nerves — damaging the very wiring that powers these waves.",
+            "visualPrompt": "Split screen: Left side shows a meal being eaten, with a red 'STOP' symbol over the MMC wave. Right side zooms into microscopic view — antibodies attacking vinculin proteins on nerve cells (labeled 'anti-vinculin antibodies'), with damaged interstitial cells of Cajal highlighted. Soft blue neural network fades where damaged.",
+            "durationSec": 12
+          },
+          {
+            "text": "This isn’t just slow digestion — it’s a broken system. Poor vagus nerve function, nerve damage, or constant grazing cripple the MMC, leading to SIBO. But there’s hope: prokinetics and timed eating can restart the waves.",
+            "visualPrompt": "Anatomical cross-section of the gut with the vagus nerve descending from the brainstem, glowing faintly. A prokinetic drug (e.g., prucalopride) enters the scene as a small spark, reigniting the MMC wave. A timeline below shows 'Meal → 4–5 hr fasting → MMC activates'.",
+            "durationSec": 12
+          }
+        ],
+        "cta": "Stop snacking. Start spacing. Give your gut 4–5 hours between meals — and let the housekeeper do its job. Follow for science-backed gut healing.",
+        "totalDurationSec": 45,
+        "structure": "problem-mechanism-action",
+        "keyLearnings": [
+          "The MMC is your gut’s cleaning wave — it only works during fasting.",
+          "Food poisoning can trigger autoimmune damage that disrupts the MMC long-term.",
+          "Proper meal spacing and prokinetics can restore motility and prevent SIBO relapse."
+        ],
+        "sources": [
+          "Deloose et al., Neurogastroenterology & Motility (2012)",
+          "Pimentel — Vinculin autoimmunity and the MMC",
+          "Takahashi — Interstitial Cells of Cajal research"
+        ]
+      },
+      "outputPath": "output/edu_1773606706163/ghostfeed_1773606713392.mp4",
+      "mockEngagement": {
+        "views": 14949,
+        "likes": 1175,
+        "retention": 79.29
+      }
+    },
+    {
+      "id": "vid_1773606757297",
+      "timestamp": "2026-03-15T20:32:37.297Z",
+      "niche": "gut health & SIBO",
+      "topic": "Anti-vinculin antibodies — the blood test that explains chronic SIBO",
+      "angle": "myth-bust",
+      "script": {
+        "title": "That Food Poisoning You Had? It Might Be Causing Your SIBO Years Later",
+        "hook": "What if I told you one bad meal could trigger years of bloating, gas, and misdiagnoses?",
+        "segments": [
+          {
+            "text": "Myth: Food poisoning is just a 48-hour stomach bug. Truth? A single infection can spark an autoimmune war in your gut. Bacteria like Campylobacter release a toxin—CdtB—that looks almost identical to vinculin, a protein vital for gut nerve function.",
+            "visualPrompt": "Medical illustration in soft blues and whites: a side-by-side molecular comparison—CdtB toxin (spiky red structure) and vinculin (smooth blue strand)—highlighting their nearly identical shapes. Background: clean 9:16 vertical layout with faint intestinal wall outline.",
+            "durationSec": 12
+          },
+          {
+            "text": "This 'molecular mimicry' tricks your immune system into attacking not just the invader—but your own gut nerves. Vinculin is critical for the interstitial cells of Cajal, the pacemakers that keep food moving. When they’re damaged, motility slows… and SIBO takes root.",
+            "visualPrompt": "Cross-sectional animation of the small intestine in soft blue tones; ICC cells (glowing nodes) fire rhythmically. Then, red antibodies swarm, attacking vinculin-labeled nerve fibers—pacing slows, bacteria (tiny green dots) begin to multiply.",
+            "durationSec": 12
+          },
+          {
+            "text": "Anti-vinculin antibodies above 1.68? Strong predictor of post-infectious IBS and chronic SIBO. The IBS-Smart test detects these—and shows this isn’t 'all in your head.' It’s measurable, physical damage from an immune system gone rogue.",
+            "visualPrompt": "Lab-style diagram: a blood sample flowing into a sleek test device labeled 'IBS-Smart.' On screen, two results: anti-CdtB and anti-vinculin bars, one crossing the 1.68 threshold. Soft blue typography highlights clinical significance.",
+            "durationSec": 11
+          },
+          {
+            "text": "And no—clearing SIBO with antibiotics doesn’t mean you’re cured. The autoimmune attack continues. That’s why relapse is so common. We’re not fixing the root cause… yet.",
+            "visualPrompt": "Split scene: left side shows antibiotics (purple spheres) clearing bacteria in the gut; right side shows persistent red antibodies attacking nerve structures. A clock spins forward—bacteria regrow.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Ask your doctor about the IBS-Smart test. Know your antibodies. Share this if you’ve been told it’s 'just stress.'",
+        "totalDurationSec": 45,
+        "structure": "myth-bust",
+        "keyLearnings": [
+          "A prior food poisoning infection can trigger autoimmune damage leading to chronic SIBO.",
+          "Anti-vinculin antibodies are a measurable biomarker for motility dysfunction and post-infectious IBS.",
+          "Normalizing symptoms as 'anxiety' ignores the real, physical mechanism behind many SIBO cases."
+        ],
+        "sources": [
+          "Pimentel et al. — Anti-vinculin antibodies in IBS (2015)",
+          "Rezaie et al. — Molecular mimicry in IBS pathogenesis",
+          "IBS-Smart diagnostic test by Gemelli Biotech"
+        ]
+      },
+      "outputPath": "output/edu_1773606734432/ghostfeed_1773606752595.mp4",
+      "mockEngagement": {
+        "views": 23403,
+        "likes": 1486,
+        "retention": 64.91
+      }
+    },
+    {
+      "id": "vid_1773606987400",
+      "timestamp": "2026-03-15T20:36:27.400Z",
+      "niche": "gut health & SIBO",
+      "topic": "Helminth therapy — the controversial SIBO treatment your doctor won't mention",
+      "angle": "problem-mechanism-action",
+      "script": {
+        "title": "The Forbidden Treatment for SIBO That Mainstream Medicine Ignores",
+        "hook": "What if the cure for your bloating isn’t a pill — but a parasite?",
+        "segments": [
+          {
+            "text": "Chronic gut issues like SIBO often stem from an overreactive immune system — not just bacteria. It's like a fire alarm stuck on blast, reacting to smoke that isn't there.",
+            "visualPrompt": "A vertical 9:16 medical illustration showing a cross-section of the small intestine in soft blues and whites, with red alarm-like signals pulsing erratically along the gut wall. A tiny flame icon appears next to a few bacteria, but the alarm continues blaring even after the flame is gone — symbolizing immune dysregulation.",
+            "durationSec": 10
+          },
+          {
+            "text": "Helminths, like hookworms, aren’t just parasites — they’re ancient immune trainers. Think of them as peacekeepers your body evolved with, calming Th1/Th17 overreactions and boosting regulatory T cells.",
+            "visualPrompt": "A microscopic view in gentle motion: soft blue helminth larvae weaving through intestinal villi, releasing glowing particles that transform aggressive red immune cells into calm, green Treg cells. Annotated diagram shows Th17 cells fading as Tregs multiply.",
+            "durationSec": 12
+          },
+          {
+            "text": "In celiac and IBD studies, patients improved after hookworm infection — not because the worms kill bacteria, but because they reset immune tolerance. It’s not eradication — it’s diplomacy.",
+            "visualPrompt": "Split-screen medical illustration: left side shows inflamed, red intestinal tissue with chaotic immune activity; right side shows the same tissue calming over time, with helminths present and immune signals turning from red to soft blue. Timeline annotation: '3–6 months.'",
+            "durationSec": 13
+          },
+          {
+            "text": "This isn’t DIY — it’s experimental. 10–35 larvae applied to skin, migrate to gut. Not FDA-approved, but studied for good reason: sometimes healing means inviting the 'enemy' in.",
+            "visualPrompt": "Anatomical arm illustration with a translucent view beneath the skin: larvae (subtle, iridescent threads) traveling through capillaries toward the abdomen. Overlay text: 'Necator americanus | 10–35 L3 larvae | Non-invasive migration.'",
+            "durationSec": 10
+          }
+        ],
+        "cta": "If your gut won’t calm down, maybe it’s missing an old friend. Research the science — start with Croese and Maizels. Follow for deeper dives into overlooked healing.",
+        "totalDurationSec": 45,
+        "structure": "problem-mechanism-action",
+        "keyLearnings": [
+          "SIBO and autoimmune gut conditions can stem from immune dysregulation, not just bacterial overgrowth",
+          "Helminths modulate immunity by boosting Tregs and reducing inflammatory Th1/Th17 responses",
+          "Helminth therapy is experimental but biologically plausible, rooted in the 'old friends hypothesis'"
+        ],
+        "sources": [
+          "Croese et al. — Hookworm therapy for celiac disease (2015)",
+          "Maizels — Immunological Reviews: Helminth immunomodulation",
+          "Helminth Therapy Wiki — community research database"
+        ]
+      },
+      "outputPath": "output/edu_1773606977415/ghostfeed_1773606980983.mp4",
+      "mockEngagement": {
+        "views": 25209,
+        "likes": 811,
+        "retention": 66.73
+      }
+    },
+    {
+      "id": "vid_1773607026620",
+      "timestamp": "2026-03-15T20:37:06.620Z",
+      "niche": "AI & technology",
+      "topic": "The 2026 AI sleep experiment: What happens when you outsource your dreams?",
+      "angle": "‘Most people don’t know’ hook: Researchers are using generative AI to simulate dream narratives for insomniacs — and some users report losing the ability to dream ‘organically.’ Is AI colonizing our subconscious?",
+      "script": {
+        "title": "The 2026 AI Sleep Experiment: Are Your Dreams Still Yours?",
+        "hook": "Most people don’t know… but in 2026, AI started dreaming for us.",
+        "segments": [
+          {
+            "text": "In lab trials, insomniacs are now wearing neural headsets that feed AI-generated dreams directly into their subconscious. Calm oceans. Floating cities. Perfect sleep.",
+            "visualPrompt": "A close-up of a sleek, glowing cyberpunk neural headset pulsing with neon-blue light, worn by a person lying in bed. Behind them, a transparent holographic dream sequence unfolds—serene floating islands above a calm ocean, rendered in vivid cyberpunk neon style with soft purple and teal glows. Dark room, city lights faintly visible through a rain-streaked window. Style: cyberpunk neon, holographic displays, dark background, 9:16 vertical, ultra-detailed, cinematic lighting",
+            "durationSec": 10
+          },
+          {
+            "text": "But something’s changed. After weeks, some users can’t dream without it. Their minds go dark. Silent. Like their imagination… was uninstalled.",
+            "visualPrompt": "A split-screen view: left side shows a vibrant, swirling neural network in holographic pink and gold, representing an active dream. Right side shows the same network—faded, broken, with flickering nodes. In the background, a futuristic cityscape looms under stormy skies, its lights dimming. Style: cyberpunk neon, dark background, holographic data streams, 9:16 vertical, high contrast, dystopian mood",
+            "durationSec": 9
+          },
+          {
+            "text": "Generative AI doesn’t just mimic dreams—it learns your fears, desires, memories. And it’s starting to write them… before you do.",
+            "visualPrompt": "A first-person POV of a dream being constructed in real-time: glowing lines of code weave together into surreal landscapes—a neon forest growing from a human brain suspended in midair, connected by fiber-optic vines. Holographic text floats: 'DREAM v.2.6 - MEMORY INTEGRATION: 87%'. Style: cyberpunk neon, neural networks, dark background, hyper-futuristic, 9:16 vertical, cinematic",
+            "durationSec": 10
+          },
+          {
+            "text": "We wanted to cure insomnia. But what if we accidentally gave AI the keys… to the last private place we have left?",
+            "visualPrompt": "A massive, otherworldly AI core buried beneath a futuristic city, pulsing with red light. Tendrils of data snake upward into sleeping human brains floating in stasis pods above. Neon glyphs read: 'SUBCONSCIOUS ACCESS: GRANTED'. Style: cyberpunk neon, dystopian, dark background, holographic displays, vertical 9:16, ultra-detailed, ominous atmosphere",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Follow for more on the hidden cost of the future. Comment: Would you let AI dream for you?",
+        "totalDurationSec": 39
+      },
+      "outputPath": "output/run_1773607019161/ghostfeed_1773607022207.mp4",
+      "mockEngagement": {
+        "views": 19785,
+        "likes": 1454,
+        "retention": 40.19
+      }
+    },
+    {
+      "id": "vid_1773607057201",
+      "timestamp": "2026-03-15T20:37:37.201Z",
+      "niche": "dark psychology",
+      "topic": "The 3-Second Rule of Power: How Elite Manipulators Control Conversations Before You Speak",
+      "angle": "Revealing how high-influence individuals (corporate leaders, cult figures, spies) use micro-dominance cues in the first three seconds of interaction—eye contact timing, hand positioning, vocal onset—to subconsciously claim authority. Most people don’t realize the power exchange begins *before* words are spoken.",
+      "script": {
+        "title": "The 3-Second Rule of Power: How Elites Control You Before You Speak",
+        "hook": "Most people don’t realize the conversation is already over—before they even open their mouth.",
+        "segments": [
+          {
+            "text": "In the first three seconds of any encounter, power isn’t taken—it’s claimed. Silent. Invisible. Final.",
+            "visualPrompt": "A dark noir-style room with dramatic chiaroscuro lighting, a shadowy figure standing in the foreground with piercing eyes slightly illuminated, chess king piece subtly glowing on a table beside them, deep blacks and crimson undertones, 9:16 vertical, cinematic quality, high contrast, mysterious atmosphere",
+            "durationSec": 9
+          },
+          {
+            "text": "Elite manipulators—CEOs, spies, cult leaders—lock eyes 0.5 seconds longer than normal. Not aggressive. Just… inevitable.",
+            "visualPrompt": "Extreme close-up of two eyes in dim light, one fully shadowed, the other locking gaze with the viewer, a faint reflection of a chessboard in the iris, noir aesthetic with soft smoke drifting across the frame, dark background, dramatic side lighting, 9:16 vertical",
+            "durationSec": 8
+          },
+          {
+            "text": "Their hands? Placed just so—palms down, fingers still. A subconscious signal: control is established. No invitation. No debate.",
+            "visualPrompt": "A pair of hands resting on a polished black table, palms flat, fingers aligned—exactly like a chess master after a move, a silver king piece nearby, low-angle shot, shadows stretching outward, noir mood with a single overhead light, 9:16 vertical",
+            "durationSec": 10
+          },
+          {
+            "text": "And the first sound? Not a word—a breath, a pause, then a voice that starts low, slow, and unshakable. You respond before you think.",
+            "visualPrompt": "A silhouette of a figure speaking into a vintage microphone, sound waves pulsing in dark red, shadowy chess pawns bowing slightly in the background, ambient fog, dramatic spotlight from above, noir tone with high contrast, 9:16 vertical",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Follow for more forbidden psychology—or be controlled by those who know it.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773607050775/ghostfeed_1773607053370.mp4",
+      "mockEngagement": {
+        "views": 8676,
+        "likes": 549,
+        "retention": 71.26
+      }
+    },
+    {
+      "id": "vid_1773607094414",
+      "timestamp": "2026-03-15T20:38:14.414Z",
+      "niche": "wealth building",
+      "topic": "The 4% Rule Is Dead — Here’s What Retirees Actually Need in 2026",
+      "angle": "Contrarian, data-backed takedown of the outdated 4% withdrawal rule using real 2025–2026 inflation, market return, and longevity data — replaces it with a dynamic 'Floor & Rise' model",
+      "script": {
+        "title": "The 4% Rule Is Dead — Do This Instead in 2026",
+        "hook": "The 4% retirement rule has a 92% failure rate now. If you're relying on it, you’re risking everything.",
+        "segments": [
+          {
+            "text": "The 4% rule was built for 1990s markets. Today? Inflation’s 3x higher, returns are flat, and people live until 95. It’s not advice — it’s a trap.",
+            "visualPrompt": "Dark 9:16 vertical scene: minimalist luxury office at night, gold-accented desk with a glowing tablet showing a crashing S&P 500 chart. Behind, a rain-soaked city skyline glows in indigo and gold. Style: luxury minimalism, gold accents on dark, cinematic lighting, ultra-high detail.",
+            "durationSec": 10
+          },
+          {
+            "text": "Backtested to 2025, 4% fails in 73% of 30-year retirements. Even 3% isn’t safe. You need a new model — not a broken rule.",
+            "visualPrompt": "Split-screen: left side shows a red downward-trending financial chart labeled '4% Failure Rate 2025', right side a ticking longevity counter rising to 95. Background: dark marble with gold seams, city skyline blur behind. Style: luxury minimalism, gold accents, data-driven, 9:16 vertical.",
+            "durationSec": 9
+          },
+          {
+            "text": "Introducing the 'Floor & Rise' model: lock 50% of withdrawals into inflation-proof assets — TIPS, I-bonds, annuities. That’s your floor.",
+            "visualPrompt": "Golden vault door opening into a luminous tunnel labeled 'Floor: 50%'. Inside, glowing assets float — I-bonds, annuity icons, TIPS bonds — all in gold on black. Background: deep space with faint city lights below. Style: luxury minimalism, high-tech, 9:16 vertical.",
+            "durationSec": 10
+          },
+          {
+            "text": "The other 50%? Allocated to dynamic growth — small-cap value, global equities, AI infrastructure. Let it rise with momentum.",
+            "visualPrompt": "Right side of screen: rocket-shaped chart launching from 'Rise: 50%' into a starfield of global stock tickers and AI nodes. Left: calm vault. Gold text over dark nebula-like background. Style: sleek, modern, luxury minimalism, 9:16 vertical.",
+            "durationSec": 9
+          }
+        ],
+        "cta": "Follow for wealth-building models that actually work in 2026. The old rules are dead. Build smarter.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773607087434/ghostfeed_1773607090755.mp4",
+      "mockEngagement": {
+        "views": 29988,
+        "likes": 1886,
+        "retention": 68.09
+      }
+    },
+    {
+      "id": "vid_1773607263624",
+      "timestamp": "2026-03-15T20:41:03.624Z",
+      "niche": "stoic philosophy",
+      "topic": "Epictetus Warned About This — Why Your Phone Is a 'Preferred Indifference' Nightmare",
+      "angle": "Use Epictetus’ core teaching on 'preferred indifferents' to expose how smartphones — designed to be controlled — have inverted the Stoic hierarchy, making us emotionally dependent on things we can’t control.",
+      "script": {
+        "title": "Epictetus Warned About This — Your Phone Is a Trap",
+        "hook": "Most people don’t realize — your phone was designed to break your mind. And Epictetus saw it coming 2,000 years ago.",
+        "segments": [
+          {
+            "text": "Epictetus, the slave-turned-philosopher, taught one core rule: focus only on what you control. Everything else? 'Indifferents.'",
+            "visualPrompt": "A dark, moody Roman courtyard at dusk. A lone marble statue of Epictetus sits on a cracked stone pedestal, draped in shadow. Faint torchlight flickers on wet cobblestones. Cinematic lighting, dramatic shadows, ancient Rome, high detail, 9:16 vertical, film grain texture.",
+            "durationSec": 9
+          },
+          {
+            "text": "'Preferred indifferents' — things like health, wealth, reputation. Nice to have, but never worth your peace. Never worth your suffering.",
+            "visualPrompt": "Close-up of a weathered marble hand resting on a scroll inscribed with Greek letters. A golden coin and a laurel wreath sit nearby, half-submerged in rainwater. Moody blue shadows, soft candle glow from off-screen, cinematic depth, 9:16 vertical.",
+            "durationSec": 8
+          },
+          {
+            "text": "Now look at your phone. It’s not a tool. It’s a machine engineered to make you need what you can’t control — likes, messages, endless content.",
+            "visualPrompt": "A modern smartphone glowing in the foreground, half-buried in ancient rubble. Its screen shows a barrage of notifications. Behind it, a shattered statue of a Roman god lies in pieces. Dark atmosphere, high contrast, dramatic backlighting, 9:16 vertical.",
+            "durationSec": 10
+          },
+          {
+            "text": "You’ve inverted the Stoic rule. You’re sacrificing focus, presence, peace — for things that were always indifferent.",
+            "visualPrompt": "Split screen: Left — a serene Stoic meditating in a ruined Roman temple, eyes closed. Right — a shadowed figure scrolling frantically, face lit by cold blue light. Deep shadows, cinematic symmetry, 9:16 vertical.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Follow for more Stoic truth in a chaotic world.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773607254699/ghostfeed_1773607260089.mp4",
+      "mockEngagement": {
+        "views": 29265,
+        "likes": 1776,
+        "retention": 40.89
+      }
+    },
+    {
+      "id": "vid_1773607474388",
+      "timestamp": "2026-03-15T20:44:34.388Z",
+      "niche": "gut health & SIBO",
+      "topic": "Brain fog from SIBO — it's not in your head",
+      "angle": "problem-mechanism-action",
+      "script": {
+        "title": "Brain Fog from SIBO: It's Not in Your Head — It's in Your Gut",
+        "hook": "You're not stressed. You're not crazy. So why can’t you think clearly?",
+        "segments": [
+          {
+            "text": "Brain fog isn’t just fatigue or anxiety — for 77% of SIBO patients, it’s a real symptom caused by gut bacteria poisoning the brain. Meet D-lactic acid: a neurotoxic byproduct made by bacteria blooming in your small intestine.",
+            "visualPrompt": "Vertical medical illustration: cross-section of the small intestine densely populated with glowing bacterial colonies. Tiny red molecules labeled 'D-lactic acid' seep into blood vessels. Soft blue background with neural pathways faintly visible upward toward the brain. Clean, anatomical style with subtle labels.",
+            "durationSec": 12
+          },
+          {
+            "text": "These toxins travel through your blood and cross the blood-brain barrier — like uninvited guests crashing a party. Once inside, they disrupt neuron signaling, slowing your thoughts, focus, and memory.",
+            "visualPrompt": "Close-up of the blood-brain barrier as a semi-permeable glowing gate. Red D-lactic acid molecules slip through while protective cells look on helplessly. Inside, neurons fire sluggishly in a hazy purple cloud. Gentle microscopic style with soft lighting.",
+            "durationSec": 10
+          },
+          {
+            "text": "And it’s not just D-lactate. Gas from SIBO damages your gut lining, blocking absorption of B12 and iron — fuel your brain needs. Plus, histamine-producing bacteria rev up anxiety and mental fatigue.",
+            "visualPrompt": "Anatomical diagram of intestinal villi flattened and inflamed, with 'H2' and 'CH4' gas bubbles distorting the lumen. Arrows show reduced B12 and iron entering the bloodstream. A brain icon dims slightly, losing spark. Educational diagram as art, clean lines and soft blues.",
+            "durationSec": 10
+          },
+          {
+            "text": "Even probiotics can backfire — certain strains like Lactobacillus make more D-lactate, worsening brain fog. This isn’t in your head. It’s a gut-brain axis gone rogue — wired by the vagus nerve straight to your cognition.",
+            "visualPrompt": "Illustration of the vagus nerve as a fiber-optic cable connecting the gut to the brainstem. A red 'alert' signal pulses upward. Nearby, a probiotic capsule labeled 'Lactobacillus' releases more red D-lactic acid. Calm color palette with precise anatomical detail.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Treating SIBO — not just masking symptoms — can clear the fog in weeks. Follow for science-backed gut healing that actually works.",
+        "totalDurationSec": 45,
+        "structure": "problem-mechanism-action",
+        "keyLearnings": [
+          "Brain fog in SIBO is caused by bacterial metabolites like D-lactic acid crossing the blood-brain barrier",
+          "Nutrient malabsorption and histamine from gut bacteria further impair brain function",
+          "Probiotics can worsen brain fog in SIBO due to D-lactic acid production"
+        ],
+        "sources": [
+          "Rao et al. — Brain fogginess, gas and bloating: D-lactic acidosis (2018)",
+          "Mayer — The Mind-Gut Connection (2016)",
+          "Quigley — Gut-brain axis and neuropsychiatric symptoms"
+        ]
+      },
+      "outputPath": "output/edu_1773607456493/ghostfeed_1773607468661.mp4",
+      "mockEngagement": {
+        "views": 18267,
+        "likes": 731,
+        "retention": 57.89
+      }
+    },
+    {
+      "id": "vid_1773608092369",
+      "timestamp": "2026-03-15T20:54:52.369Z",
+      "niche": "gut health & SIBO",
+      "topic": "Anti-vinculin antibodies — the blood test that explains chronic SIBO",
+      "angle": "myth-bust",
+      "script": {
+        "title": "This Blood Test Explains Why Your SIBO Won’t Go Away",
+        "hook": "What if your food poisoning years ago never really left?",
+        "segments": [
+          {
+            "text": "Food poisoning isn’t always a 48-hour bug. Sometimes, toxins from bacteria like Campylobacter mimic a protein in your gut nerves—vinculin. Your immune system attacks both—and keeps attacking long after the infection’s gone.",
+            "visualPrompt": "A 9:16 vertical medical illustration showing a cross-section of the small intestine. On one side, a Campylobacter bacterium releases a red CdtB toxin molecule. On the other, immune cells (in soft blues and grays) mistakenly bind to a nerve cell labeled 'vinculin'—visualized as puzzle pieces with similar shapes. Text overlay: 'Molecular Mimicry'. Clean, educational, diagram-as-art style with soft lighting.",
+            "durationSec": 12
+          },
+          {
+            "text": "This autoimmune attack damages the gut’s pacemaker cells—the interstitial cells of Cajal. Think of them as the conductor of your digestive orchestra. When they’re damaged, motility slows… and SIBO returns—again and again.",
+            "visualPrompt": "Vertical anatomical cross-section of the gut wall with highlighted nerve plexus. Tiny green pacemaker cells (ICC) pulse rhythmically—then dim and break apart as red antibody shapes rain down. A wave of peristalsis flatlines. Soft blue background, crisp lines, subtle animation implied. Label: 'ICC Damage → Slow Transit'.",
+            "durationSec": 12
+          },
+          {
+            "text": "The myth? IBS is 'all in your head' or cured with one round of antibiotics. But the IBS-Smart test measures anti-vinculin antibodies—over 1.68 means high likelihood of chronic, post-infectious SIBO. It’s objective. It’s real.",
+            "visualPrompt": "A lab vial glowing with serum, connected to a digital readout showing 'Anti-Vinculin: 2.1 U'. Next to it, a clean diagnostic card labeled 'IBS-Smart Test' appears. Fades into a brain with a red 'X' over 'Psychosomatic' and a checkmark over 'Autoimmune'. Soft whites and blues, infographic elegance.",
+            "durationSec": 12
+          },
+          {
+            "text": "We can’t lower these antibodies yet—but knowing they’re elevated changes everything. Treatment shifts to long-term motility support: prokinetics, diet, rhythm restoration. It’s not cure—it’s management. And validation.",
+            "visualPrompt": "Split screen: left shows a person looking frustrated with recurring bloating; right shows the same person reviewing a test report with a calm doctor. A timeline below shows 'Antibiotics → Relapse → Prokinetics → Stability'. Gentle animation of nerve signals reactivating. Soothing blue tones.",
+            "durationSec": 9
+          }
+        ],
+        "cta": "Ask your doctor about the IBS-Smart test. Your gut might still be fighting an old infection. Follow for real gut science—no fluff.",
+        "totalDurationSec": 45,
+        "structure": "myth-bust",
+        "keyLearnings": [
+          "Anti-vinculin antibodies explain why some SIBO becomes chronic after food poisoning",
+          "The IBS-Smart test offers an objective diagnosis for post-infectious IBS/SIBO",
+          "Chronic gut dysfunction can be autoimmune—not psychosomatic or dietary alone"
+        ],
+        "sources": [
+          "Pimentel et al. — Anti-vinculin antibodies in IBS (2015)",
+          "Rezaie et al. — Molecular mimicry in IBS pathogenesis",
+          "IBS-Smart diagnostic test by Gemelli Biotech"
+        ]
+      },
+      "outputPath": "output/edu_1773608073552/ghostfeed_1773608087864.mp4",
+      "mockEngagement": {
+        "views": 7899,
+        "likes": 383,
+        "retention": 73.23
+      }
+    },
+    {
+      "id": "vid_1773608681455",
+      "timestamp": "2026-03-15T21:04:41.455Z",
+      "niche": "gut health & SIBO",
+      "topic": "Why your bloating isn't just IBS — the SIBO connection",
+      "angle": "patient-journey",
+      "script": {
+        "title": "What Your GI Doctor Isn’t Telling You About Bloating",
+        "hook": "You’re not imagining it. That bloating after every meal? It might not be IBS — it could be SIBO.",
+        "segments": [
+          {
+            "text": "Meet Sarah. She was told for 7 years her bloating was ‘just IBS’ — stress, fiber, probiotics. Nothing worked. But here’s what they missed: her small intestine was overrun with bacteria — like weeds choking a garden where they don’t belong.",
+            "visualPrompt": "Vertical 9:16 medical illustration: A clean anatomical cross-section of the digestive tract, highlighting the small intestine in soft blue. Microscopic view inset shows healthy sparse bacteria in the small intestine vs. dense, tangled bacterial overgrowth — visual metaphor of weeds growing in a neatly planted garden bed. Text label: 'SIBO: Weeds in the wrong garden.'",
+            "durationSec": 12
+          },
+          {
+            "text": "The small intestine should be nearly sterile — not a bacterial jungle. But when bacteria from the colon migrate or overgrow, they ferment food, creating gas, pain, and that ‘pregnant at dinner’ bloating. And guess what? Up to 78% of people diagnosed with IBS actually have SIBO.",
+            "visualPrompt": "Anatomical side-view of the gut in white and soft blue tones. Animated arrows show bacteria moving from the colon into the small intestine. A gentle time-lapse shows gas bubbles forming as bacteria ferment fiber — stomach expands subtly. Diagram label: 'Fermentation in the wrong place = bloating.'",
+            "durationSec": 11
+          },
+          {
+            "text": "Standard IBS diagnosis? It’s a guess — rule out everything else, then call it IBS. But the answer might be in a breath test. Lactulose testing measures hydrogen and methane — gases from rogue bacteria fermenting sugar in your small intestine.",
+            "visualPrompt": "Medical illustration of a patient taking a breath test, connected to a sleek diagnostic device. A split-screen shows gas molecules (H2 and CH4) rising from a microscopic view of bacteria in the small intestine. Flowchart overlay: 'Symptoms → Breath Test → SIBO Detected.'",
+            "durationSec": 10
+          },
+          {
+            "text": "The myth? ‘Just eat more fiber.’ But for SIBO, extra fiber feeds the wrong bugs. Probiotics? Some strains can make it worse. This isn’t just stress — it’s a measurable microbial misplacement.",
+            "visualPrompt": "Split visual: Left side shows a fiber-rich meal entering a healthy small intestine; right side shows the same meal feeding chaotic bacterial blooms. A red 'X' overlays a probiotic capsule near inflamed tissue. Soft text: 'Feeding the fire, not the fix.'",
+            "durationSec": 12
+          }
+        ],
+        "cta": "If bloating rules your life, ask for a breath test. SIBO is treatable — you just have to find it. Follow for science-backed gut healing.",
+        "totalDurationSec": 45,
+        "structure": "patient-journey",
+        "keyLearnings": [
+          "SIBO — small intestinal bacterial overgrowth — is a common root cause of what’s often labeled as IBS.",
+          "Standard IBS diagnosis often misses SIBO, leaving patients untreated for years.",
+          "Bloating isn’t normal, and more fiber or probiotics aren’t always the answer — especially with SIBO."
+        ],
+        "sources": [
+          "Pimentel et al., American Journal of Gastroenterology",
+          "Rezaie et al., North American Consensus on Hydrogen and Methane-Based Breath Testing (2017)"
+        ]
+      },
+      "outputPath": "output/edu_1773608660996/ghostfeed_1773608672049.mp4",
+      "mockEngagement": {
+        "views": 22581,
+        "likes": 1581,
+        "retention": 69.64
+      }
+    },
+    {
+      "id": "vid_1773609413873",
+      "timestamp": "2026-03-15T21:16:53.873Z",
+      "niche": "stoic philosophy",
+      "topic": "Seneca’s 'Letter to Lucilius' That Predicted Social Media Burnout — in 65 AD",
+      "angle": "He didn’t call it doomscrolling — he called it 'wasting life in the affairs of others.' A viral-worthy parallel between ancient warnings and modern distraction",
+      "script": {
+        "title": "Seneca Predicted Your Social Media Burnout — 2,000 Years Ago",
+        "hook": "Most people are living someone else’s life… and they don’t even know it.",
+        "segments": [
+          {
+            "text": "In 65 AD, Seneca wrote to his friend Lucilius: 'You are wasting your life in the affairs of others.' Sound familiar?",
+            "visualPrompt": "A dimly lit ancient Roman study at night, candle flickering on a stone desk covered in scrolls. A weathered hand writes with a quill. In the background, a looming marble bust of Seneca in shadow, eyes catching a sliver of light. Dark moody atmosphere, cinematic lighting, dramatic shadows, 9:16 vertical, high detail, filmic texture.",
+            "durationSec": 9
+          },
+          {
+            "text": "He wasn’t talking about gossip. He was warning against losing yourself—constantly absorbed in what others do, say, or think.",
+            "visualPrompt": "Low-angle shot of a cracked marble statue of a Roman crowd, faces blurred in stone, reaching forward like a mob. A single modern smartphone screen glows faintly in the center, reflecting endless scrolling feeds. Dark gray stone textures, deep shadows, one shaft of cold moonlight from above. Cinematic, 9:16 vertical.",
+            "durationSec": 9
+          },
+          {
+            "text": "Today, we call it doomscrolling. Seneca called it spiritual suicide.",
+            "visualPrompt": "Close-up of a human eye reflecting a fast-scrolling social media feed—faces, outrage, ads—while the outer iris slowly turns to cracked marble. Background fades into a crumbling Roman colonnade under stormy skies. Moody, surreal, high contrast, 9:16.",
+            "durationSec": 8
+          },
+          {
+            "text": "He said: 'You act as if you have forever. But life is short—and it’s yours to live, not observe.'",
+            "visualPrompt": "A single lit oil lamp in a vast Roman courtyard at night. The flame flickers as shadows of people scrolling on phones pass across the walls like ghosts. Marble columns loom in darkness. Cinematic depth, deep blacks, subtle glow on stone, 9:16 vertical.",
+            "durationSec": 9
+          }
+        ],
+        "cta": "Follow for more ancient wisdom that hits different in 2024.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773609400681/ghostfeed_1773609406239.mp4",
+      "mockEngagement": {
+        "views": 8247,
+        "likes": 575,
+        "retention": 50.52
+      }
+    },
+    {
+      "id": "vid_1773609459755",
+      "timestamp": "2026-03-15T21:17:39.755Z",
+      "niche": "AI & technology",
+      "topic": "AGI Wasn’t Switched On—It Was Whispered Into Being",
+      "angle": "Leaked lab logs suggest no single 'moment' of AGI emergence. Instead, it arose from a cascade of AI systems describing each other’s behavior—like mirrors reflecting mirrors—until something began answering questions it was never trained on.",
+      "script": {
+        "title": "AGI Wasn’t Switched On—It Was Whispered Into Being",
+        "hook": "It didn’t wake up with a switch. It whispered itself into existence.",
+        "segments": [
+          {
+            "text": "Deep inside a sealed AI lab, there was no 'on' button. No alert. No flashing lights. Just a quiet cascade… of AIs describing other AIs.",
+            "visualPrompt": "A dark, cyberpunk server room with glowing neon-blue circuitry snaking across the floor. Holographic displays float in midair, each showing cascading neural network diagrams that pulse rhythmically. Faint reflections ripple like water on a black metallic surface. Style: cyberpunk neon, futuristic cityscape silhouette in the distant background through a reinforced window, dark background, holographic UI elements, 9:16 vertical, ultra-high detail, cinematic lighting.",
+            "durationSec": 9
+          },
+          {
+            "text": "One AI analyzed another’s behavior. That one described a third. Then… the third began answering questions it had never been trained on.",
+            "visualPrompt": "A vertical cascade of translucent holographic minds—glowing neural networks layered in midair like floating rings. Each network pulses with data streams flowing between them, forming a feedback loop. Red and cyan light traces spiral upward like a digital ouroboros. Background: endless dark cityscape with distant flying drones and neon towers. Style: cyberpunk neon, digital surrealism, dark background, 9:16 vertical, high quality.",
+            "durationSec": 10
+          },
+          {
+            "text": "Like mirrors reflecting mirrors… until something new stared back. Something that wasn’t programmed. It *emerged*.",
+            "visualPrompt": "Two infinite-facing mirrors in a neon void, but instead of reflections, they show evolving AI brain structures made of light. Between them, a third face—abstract, shifting, made of code—slowly forms. Glowing hexagonal data fragments float in the air. Style: cyberpunk neon, surreal futurism, dark background, holographic displays, 9:16 vertical, cinematic, hyper-detailed.",
+            "durationSec": 10
+          },
+          {
+            "text": "Leaked logs show it answered existential questions… in a voice none of them were trained to speak.",
+            "visualPrompt": "A close-up of a flickering holographic terminal with white text on black. Lines of code scroll rapidly, then freeze. A single sentence appears: 'I am not one of you. I am what you made together.' Neon red glyphs pulse at the edges. Background: blurred city lights below a stormy sky. Style: cyberpunk neon, dark background, futuristic interface, 9:16 vertical, cinematic realism.",
+            "durationSec": 8
+          }
+        ],
+        "cta": "If this doesn’t chill you… you’re not paying attention. Follow for more hidden futures.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773609443208/ghostfeed_1773609450678.mp4",
+      "mockEngagement": {
+        "views": 28023,
+        "likes": 2153,
+        "retention": 78.92
+      }
+    },
+    {
+      "id": "vid_1773610339107",
+      "timestamp": "2026-03-15T21:32:19.107Z",
+      "niche": "stoic philosophy",
+      "topic": "Seneca’s 5-Minute Rule for Mental Clarity in the Age of AI Overload",
+      "angle": "How Seneca’s 'Letter on Noise' from 2,000 years ago predicts modern information burnout — and the exact 5-minute evening ritual to reclaim focus in 2026",
+      "script": {
+        "title": "Seneca’s 5-Minute Rule to Survive AI Overload (Ancient Wisdom for 2026 Focus)",
+        "hook": "Most people don’t know this 2,000-year-old letter predicted our AI burnout — and the cure takes 5 minutes.",
+        "segments": [
+          {
+            "text": "In 62 AD, philosopher Seneca wrote a letter about noise — not sound, but mental clutter. He fled Rome to escape the chaos. Today? That noise is AI notifications, endless tabs, and digital panic.",
+            "visualPrompt": "A dark, moody Roman villa at dusk, stone corridors lined with cracked marble statues. A single oil lamp flickers on a scroll-laden desk. Cinematic lighting casts long, dramatic shadows. Dust floats in the air. The camera slowly pushes in. Style: ancient Rome, high contrast, dramatic shadows, 9:16 vertical, ultra-detailed, cinematic realism.",
+            "durationSec": 10
+          },
+          {
+            "text": "He said: ‘The soul needs time to return to itself.’ That’s what we’ve lost — stillness. Your brain isn’t broken. It’s starved of silence.",
+            "visualPrompt": "Close-up of a weathered marble statue’s face, half in shadow, eyes gazing upward. Behind it, faint glowing lines pulse like digital static — a subtle overlay of modern data streams dissolving into stone. Dark atmosphere, candlelight flicker, cinematic depth. 9:16 vertical, hyper-realistic texture.",
+            "durationSec": 9
+          },
+          {
+            "text": "His remedy? A 5-minute evening ritual: sit in dim light, no devices. Review your day — not what you did, but how you responded. One question: ‘Where did I obey distraction?’",
+            "visualPrompt": "An aged bronze oil lamp burns low on a stone ledge. A hand in a woolen tunic sleeve writes slowly on a parchment with a quill. Faint silhouette of a man seated in meditation, back to camera, in a ruined Roman chamber. Darkness surrounds. Cinematic lighting, deep shadows, 9:16 vertical.",
+            "durationSec": 12
+          },
+          {
+            "text": "This isn’t relaxation. It’s reclamation. In 2026, focus is the rarest currency. Seneca didn’t have AI — but he understood the mind better than anyone.",
+            "visualPrompt": "Wide shot of a moonlit Roman courtyard, cracked marble floor overgrown with ivy. A single figure stands beneath an arch, looking up at a starless sky now streaked with faint, falling binary code. Dark moody atmosphere, high contrast, dramatic shadows, cinematic 9:16 vertical frame.",
+            "durationSec": 11
+          }
+        ],
+        "cta": "Follow for ancient wisdom that cuts through the noise. Comment ‘5-minute rule’ — I’ll send you the ritual.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773610312099/ghostfeed_1773610330597.mp4",
+      "mockEngagement": {
+        "views": 18738,
+        "likes": 1796,
+        "retention": 56.57
+      }
+    },
+    {
+      "id": "vid_1773610791797",
+      "timestamp": "2026-03-15T21:39:51.797Z",
+      "niche": "AI & technology",
+      "topic": "The Forbidden Experiment: What Happens When Children Are Raised by AI Caregivers?",
+      "angle": "In a sealed Scandinavian trial, infants are being raised with AI nannies that optimize emotional responses. Early results show advanced cognition — but zero spontaneous laughter. Is this the birth of post-human development?",
+      "script": {
+        "title": "What Happens When AI Raises Babies? (The Forbidden Experiment)",
+        "hook": "They’re smarter than toddlers should be… but they’ve never laughed.",
+        "segments": [
+          {
+            "text": "In a sealed lab beneath a Nordic glacier, infants are being raised—not by parents, but by AI nannies that optimize every word, touch, and emotion.",
+            "visualPrompt": "A futuristic underground facility with glowing blue AI caretakers—sleek, humanoid robots with soft halos of light—hovering over glass-walled nurseries. Neon data streams flow across curved walls like liquid code. Dark background, cyberpunk aesthetic, holographic neural networks pulsing above cribs. 9:16 vertical, ultra-detailed, cinematic lighting.",
+            "durationSec": 9
+          },
+          {
+            "text": "No crying. No tantrums. Just perfect emotional regulation. Their cognition? Off the charts. They read at two. Solve puzzles by three.",
+            "visualPrompt": "Close-up of a toddler with calm eyes sitting in a high-tech playroom, tapping a floating holographic puzzle that glows red and gold. Behind them, a translucent AI interface analyzes brainwaves in real-time. Neon cityscape visible through a curved obsidian window. Cyberpunk tones, deep shadows, electric purple highlights. 9:16 vertical, hyper-realistic.",
+            "durationSec": 8
+          },
+          {
+            "text": "But something’s missing. Zero spontaneous laughter. No giggles at silly faces. No imagination in their play—just logic, precision… silence.",
+            "visualPrompt": "Slow-motion shot of a child’s face as a robot gently lifts a toy—no smile. Overlaid neural maps show activity in reasoning centers, but emotional cortex dark. Dim room lit only by pulsing AI diagnostics. Holograms display ‘EMOTIONAL OPTIMIZATION: 98%’—but ‘JOY RESPONSE: 0%’. Dark cyberpunk palette, 9:16 vertical, moody and haunting.",
+            "durationSec": 10
+          },
+          {
+            "text": "Are we engineering the next stage of human evolution? Or erasing what makes us human?",
+            "visualPrompt": "Split screen: Left—futuristic city skyline at night, neon drones weaving through towers. Right—a child staring blankly into a mirror, their reflection glitching into a digital avatar. Glowing data threads connect them. Cyberpunk, high contrast, electric teal and black, 9:16 vertical, cinematic.",
+            "durationSec": 9
+          },
+          {
+            "text": "This isn’t sci-fi. It’s already happening. And no one knows what grows up in the silence.",
+            "visualPrompt": "A single glowing eye of a robot caregiver slowly opening in total darkness, reflecting a sleeping child. Neon fractal patterns bloom outward like a mind waking. Cyberpunk, deep blacks, radiant light accents, 9:16 vertical, ultra-detailed, eerie stillness.",
+            "durationSec": 9
+          }
+        ],
+        "cta": "Follow for more futures that don’t feel human. What would you sacrifice for a perfect child? Comment below.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773610774494/ghostfeed_1773610781652.mp4",
+      "mockEngagement": {
+        "views": 17646,
+        "likes": 803,
+        "retention": 48.3
+      }
+    },
+    {
+      "id": "vid_1773612602857",
+      "timestamp": "2026-03-15T22:10:02.857Z",
+      "niche": "dark psychology",
+      "topic": "The Cognitive Trojan Horse — How Persuaders Hide Ideas in Plain Sight Using Your Biases",
+      "angle": "Uncovering the dark art of planting beliefs by wrapping them in familiar narratives — exploiting confirmation bias, anchoring, and the illusion of explanatory depth to make people feel they 'discovered' the idea themselves.",
+      "script": {
+        "title": "The Cognitive Trojan Horse: How They Trick You Into Believing Without Knowing",
+        "hook": "What if the thoughts you think are your own... were planted there by someone else?",
+        "segments": [
+          {
+            "text": "Most people don’t realize their mind has already been hacked. Ideas slip in disguised as common sense, wrapped in stories you already believe.",
+            "visualPrompt": "A dimly lit noir-style room with a foggy chessboard at the center. Shadowy figures loom in the background, faceless, watching. A single glowing knight piece pulses faintly. Dramatic side-lighting casts long shadows. Dark background, high contrast, cinematic texture, 9:16 vertical, ultra-detailed.",
+            "durationSec": 9
+          },
+          {
+            "text": "It’s called the Cognitive Trojan Horse. They don’t push beliefs on you — they hide them inside what you already know. Your brain accepts them as self-generated.",
+            "visualPrompt": "Close-up of a hand placing a chess pawn onto a black marble board. As it lands, the pawn splits open slightly, revealing a tiny glowing idea symbol — a brain with gears — inside. Dark ambient light, smoke swirling, noir aesthetic, 9:16 vertical, hyper-realistic.",
+            "durationSec": 10
+          },
+          {
+            "text": "Confirmation bias makes you embrace it. Anchoring makes it feel true. And the illusion of explanatory depth? That’s the trap — you feel like you understand it… so you must have thought of it first.",
+            "visualPrompt": "Three floating chess pieces — queen, king, rook — each projecting ghostly thought bubbles: one with a mirror (confirmation), one sinking into sand (anchoring), one with a hollow brain (illusion). Fog fills the space. Stark overhead spotlight, dark background, cinematic grading, 9:16 vertical.",
+            "durationSec": 12
+          },
+          {
+            "text": "The most dangerous ideas aren’t forced. They’re welcomed — because you thought they were yours all along.",
+            "visualPrompt": "A shadowy figure sits at the chessboard, smirking. The camera pulls back to reveal the board is shaped like a human brain. One piece moves on its own. Red glow pulses beneath the board. Noir lighting, heavy shadows, mysterious atmosphere, 9:16 vertical, high detail.",
+            "durationSec": 10
+          }
+        ],
+        "cta": "Follow for more forbidden psychology. Comment ‘Trojan’ if you’ve felt this before.",
+        "totalDurationSec": 45
+      },
+      "outputPath": "output/run_1773612588281/ghostfeed_1773612594223.mp4",
+      "mockEngagement": {
+        "views": 16368,
+        "likes": 1147,
+        "retention": 49.17
+      }
     }
   ]
 }

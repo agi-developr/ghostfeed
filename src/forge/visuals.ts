@@ -23,36 +23,57 @@ export async function generateImages(
   const promises = segments.map(async (seg, i) => {
     const imgPath = path.join(outputDir, `segment_${i}.webp`);
 
-    const response = await fetch(`${config.nebius.baseUrl}images/generations`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${config.nebius.apiKey}`,
-      },
-      body: JSON.stringify({
-        model: IMAGE_MODEL,
-        prompt: seg.visualPrompt,
-        n: 1,
-        width: IMAGE_WIDTH,
-        height: IMAGE_HEIGHT,
-        response_format: "b64_json",
-      }),
-    });
-
-    if (!response.ok) {
-      const err = await response.text();
-      throw new Error(
-        `Image gen failed for segment ${i}: ${response.status} ${err.slice(0, 200)}`,
+    const generateOne = async () => {
+      const response = await fetch(
+        `${config.nebius.baseUrl}images/generations`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${config.nebius.apiKey}`,
+          },
+          body: JSON.stringify({
+            model: IMAGE_MODEL,
+            prompt: seg.visualPrompt,
+            n: 1,
+            width: IMAGE_WIDTH,
+            height: IMAGE_HEIGHT,
+            response_format: "b64_json",
+          }),
+        },
       );
+
+      if (!response.ok) {
+        const err = await response.text();
+        throw new Error(
+          `Image gen failed for segment ${i}: ${response.status} ${err.slice(0, 200)}`,
+        );
+      }
+
+      const data = (await response.json()) as any;
+      const b64 = data.data?.[0]?.b64_json;
+      if (!b64) throw new Error(`No image data for segment ${i}`);
+
+      await fs.writeFile(imgPath, Buffer.from(b64, "base64"));
+      log("visual", `Image ${i + 1}/${segments.length} saved`);
+      return imgPath;
+    };
+
+    // Retry up to 3 times with exponential backoff
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        return await generateOne();
+      } catch (err: any) {
+        if (attempt === 3) throw err;
+        const delay = Math.min(1000 * 2 ** attempt, 10000);
+        log(
+          "visual",
+          `Segment ${i} attempt ${attempt} failed, retrying in ${delay}ms...`,
+        );
+        await new Promise((r) => setTimeout(r, delay));
+      }
     }
-
-    const data = (await response.json()) as any;
-    const b64 = data.data?.[0]?.b64_json;
-    if (!b64) throw new Error(`No image data for segment ${i}`);
-
-    await fs.writeFile(imgPath, Buffer.from(b64, "base64"));
-    log("visual", `Image ${i + 1}/${segments.length} saved`);
-    return imgPath;
+    throw new Error("unreachable");
   });
 
   const results = await Promise.all(promises);
