@@ -15,10 +15,10 @@ export function createServerSupabase() {
   );
 }
 
-// Default export for API routes — uses service role
+// Default export for API routes — uses service role (lazy, safe at build time)
 export function createClient() {
-  return _createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  );
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) throw new Error("Supabase env vars not set");
+  return _createClient(url, key);
 }

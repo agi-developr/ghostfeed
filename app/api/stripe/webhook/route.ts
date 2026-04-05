@@ -1,14 +1,12 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { createClient } from "../../../../lib/supabase";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-01-27.acacia",
-});
-
 export async function POST(request: Request) {
   const body = await request.text();
   const sig = request.headers.get("stripe-signature")!;
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2026-02-25.clover" });
 
   let event: Stripe.Event;
   try {
@@ -28,19 +26,16 @@ export async function POST(request: Request) {
 
   switch (event.type) {
     case "checkout.session.completed": {
-      const session = event.data.object as Stripe.CheckoutSession;
+      const session = event.data.object as Stripe.Checkout.Session;
       const customerId = session.customer as string;
       const subscriptionId = session.subscription as string;
       const plan = session.metadata?.plan || "starter";
       const email = session.customer_email;
 
       if (email) {
-        // Upsert subscription record by email lookup
-        const { data: user } = await supabase
-          .from("auth.users")
-          .select("id")
-          .eq("email", email)
-          .single();
+        // Upsert subscription record — look up user by email via auth admin
+        const { data: users } = await supabase.auth.admin.listUsers();
+        const user = users?.users?.find((u) => u.email === email);
 
         if (user) {
           await supabase.from("subscriptions").upsert({
@@ -69,13 +64,21 @@ export async function POST(request: Request) {
       const invoice = event.data.object as Stripe.Invoice;
       // Reset monthly video count on renewal
       if (invoice.billing_reason === "subscription_cycle") {
-        await supabase
-          .from("subscriptions")
-          .update({
-            videos_this_month: 0,
-            period_start: new Date().toISOString(),
-          })
-          .eq("stripe_subscription_id", invoice.subscription);
+        // New Stripe API: subscription is nested under parent
+        const subId =
+          typeof invoice.parent?.subscription_details?.subscription === "string"
+            ? invoice.parent.subscription_details.subscription
+            : (invoice.parent?.subscription_details?.subscription as Stripe.Subscription | null)?.id;
+
+        if (subId) {
+          await supabase
+            .from("subscriptions")
+            .update({
+              videos_this_month: 0,
+              period_start: new Date().toISOString(),
+            })
+            .eq("stripe_subscription_id", subId);
+        }
       }
       break;
     }

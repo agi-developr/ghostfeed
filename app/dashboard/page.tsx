@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const s = {
@@ -20,7 +20,7 @@ const s = {
   statLbl: { fontSize: 11, textTransform: "uppercase" as const, letterSpacing: 1.5, color: "#888", marginTop: 4 },
 };
 
-export default function DashboardPage() {
+function DashboardContent() {
   const searchParams = useSearchParams();
   const connected = searchParams.get("connected");
   const error = searchParams.get("error");
@@ -118,5 +118,13 @@ export default function DashboardPage() {
         <a href="/" style={{ fontSize: 13, color: "#666" }}>← Back to home</a>
       </div>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40 }}>Loading dashboard...</div>}>
+      <DashboardContent />
+    </Suspense>
   );
 }
